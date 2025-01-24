@@ -1,0 +1,5 @@
+npx create-next-app@latest airbnb-management --tailwind --eslint
+cd airbnb-management
+npm install framer-motion react-intersection-observer react-icons 
+mkdir -p public/images 
+mkdir -p public/images/partners 
