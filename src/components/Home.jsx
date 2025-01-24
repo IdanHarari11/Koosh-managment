@@ -10,6 +10,7 @@ import WhyChooseUs from './WhyChooseUs';
 import Services from './Services';
 import WorkflowSection from './WorkflowSection';
 import Footer from './Footer';
+import ContactSection from './ContactSection';
 
 const images = [
   'https://images.unsplash.com/photo-1600585154340-be6161a56a0c',
@@ -107,6 +108,10 @@ const Home = () => {
 
       <div id="workflow">
         <WorkflowSection />
+      </div>
+
+      <div id="contact">
+        <ContactSection />
       </div>
 
       <div id="footer">

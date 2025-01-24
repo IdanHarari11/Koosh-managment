@@ -11,7 +11,7 @@ const navItems = [
   { name: 'Why Choose Us', sectionId: 'why-choose-us' },
   { name: 'Services', sectionId: 'services' },
   { name: 'How It Works', sectionId: 'workflow' },
-  { name: 'Contact', sectionId: 'footer' },
+  { name: 'Contact', sectionId: 'contact' },
 ];
 
 const Navbar = () => {
