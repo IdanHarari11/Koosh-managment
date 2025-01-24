@@ -173,7 +173,7 @@ const WorkflowSection = () => {
                   d="M 100 120 
                      C 200 120, 600 120, 700 360
                      C 800 600, 200 720, 100 840
-                     C 0 960, 600 960, 700 840"
+                     C 0 960, 600 960, 700 960"
                   stroke="currentColor"
                   strokeWidth="2"
                   strokeDasharray="8 8"
