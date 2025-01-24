@@ -9,6 +9,7 @@ import Partners from './Partners';
 import WhyChooseUs from './WhyChooseUs';
 import Services from './Services';
 import WorkflowSection from './WorkflowSection';
+import Footer from './Footer';
 
 const images = [
   'https://images.unsplash.com/photo-1600585154340-be6161a56a0c',
@@ -97,6 +98,8 @@ const Home = () => {
       <Services />
 
       <WorkflowSection />
+
+      <Footer />
     </div>
   );
 };
