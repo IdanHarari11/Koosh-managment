@@ -30,7 +30,7 @@ const Home = () => {
 
   return (
     <div>
-      <div className="relative h-screen">
+      <div id="home" className="relative h-screen">
         {images.map((image, index) => (
           <div
             key={image}
@@ -89,17 +89,29 @@ const Home = () => {
         </div>
       </div>
 
-      <Partners />
+      <div id="partners">
+        <Partners />
+      </div>
 
-      <GallerySection />
+      <div id="gallery">
+        <GallerySection />
+      </div>
 
-      <WhyChooseUs />
+      <div id="why-choose-us">
+        <WhyChooseUs />
+      </div>
 
-      <Services />
+      <div id="services">
+        <Services />
+      </div>
 
-      <WorkflowSection />
+      <div id="workflow">
+        <WorkflowSection />
+      </div>
 
-      <Footer />
+      <div id="footer">
+        <Footer />
+      </div>
     </div>
   );
 };
