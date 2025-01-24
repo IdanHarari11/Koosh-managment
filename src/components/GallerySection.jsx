@@ -87,7 +87,7 @@ const GallerySection = () => {
   };
 
   return (
-    <div className="bg-gray-50 py-16">
+    <div className="bg-gray-50/50 py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Gallery Section */}
