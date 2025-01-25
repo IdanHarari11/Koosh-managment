@@ -145,17 +145,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-
-      {/* Scroll to Top Button */}
-      <motion.button
-        onClick={scrollToTop}
-        className="fixed bottom-8 right-8 w-10 h-10 rounded-full bg-primary 
-                 flex items-center justify-center shadow-lg cursor-pointer"
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
-      >
-        <FaArrowUp className="w-5 h-5 text-white" />
-      </motion.button>
     </footer>
   );
 };

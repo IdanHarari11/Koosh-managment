@@ -11,6 +11,7 @@ import Services from './Services';
 import WorkflowSection from './WorkflowSection';
 import Footer from './Footer';
 import ContactSection from './ContactSection';
+import ScrollToTop from './ScrollToTop';
 
 const images = [
   'https://images.unsplash.com/photo-1600585154340-be6161a56a0c',
@@ -30,7 +31,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div>
+    <div className="relative">
       <div id="home" className="relative h-screen">
         {images.map((image, index) => (
           <div
@@ -117,6 +118,8 @@ const Home = () => {
       <div id="footer">
         <Footer />
       </div>
+
+      <ScrollToTop />
     </div>
   );
 };
