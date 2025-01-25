@@ -109,7 +109,7 @@ const Home = () => {
             </motion.button>
           </div>
 
-          <div className="w-full bg-white/10 backdrop-blur-md py-6">
+          <div className="w-full py-6">
             <div className="max-w-6xl mx-auto px-4">
               <Achievements />
             </div>

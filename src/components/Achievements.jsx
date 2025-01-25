@@ -59,12 +59,10 @@ const Achievements = () => {
             scale: 1.05,
             transition: { duration: 0.2 }
           }}
-          className={`group relative overflow-hidden 
+          className={`group relative overflow-hidden bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl
                      ${!achievement.showOnMobile ? 'hidden lg:block' : ''}`}
         >
-          <div className="flex flex-col items-center text-center p-1.5 md:p-2 rounded-lg md:rounded-xl 
-                        bg-white/10 backdrop-blur-sm border border-white/20
-                        relative z-10">
+          <div className="flex flex-col items-center text-center p-1.5 md:p-2 relative z-10">
             {/* Glowing background effect */}
             <div className={`absolute inset-0 opacity-20 bg-gradient-to-br ${achievement.color}
                            group-hover:opacity-30 transition-opacity duration-300`} />
@@ -88,7 +86,7 @@ const Achievements = () => {
 
             {/* Value with animated counting effect */}
             <motion.div
-              className="text-sm md:text-xl font-bold text-white relative"
+              className="text-sm md:text-xl font-bold text-white relative text-shadow-sm"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3, delay: index * 0.1 + 0.2 }}
@@ -101,7 +99,7 @@ const Achievements = () => {
 
             {/* Label with gradient text effect */}
             <div className={`text-[10px] md:text-xs font-medium bg-gradient-to-r ${achievement.color}
-                           bg-clip-text text-transparent mt-0.5 md:mt-1 leading-tight`}>
+                           bg-clip-text text-transparent mt-0.5 md:mt-1 leading-tight text-shadow-sm`}>
               {achievement.label}
             </div>
           </div>
