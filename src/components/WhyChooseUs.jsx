@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { HiCheck, HiX } from 'react-icons/hi';
 import { FaHome, FaComments, FaChartLine, FaCog } from 'react-icons/fa';
+import SectionTitle from './SectionTitle';
 
 const features = [
   {
@@ -66,8 +67,13 @@ const WhyChooseUs = () => {
   const [selectedImage, setSelectedImage] = useState(null);
 
   return (
-    <section className="py-16 bg-gray-50/50">
+    <section className="py-20 bg-gray-50/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <SectionTitle
+          title="Why Choose Koosh Management"
+          subtitle="Our Advantages"
+          sectionId="why-choose-us"
+        />
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
           {/* Left Column - Text Content */}
           <div className="flex flex-col justify-center">

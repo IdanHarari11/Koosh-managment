@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
+import SectionTitle from './SectionTitle';
 
 const contactInfo = [
   {
@@ -51,27 +52,11 @@ const ContactSection = () => {
   return (
     <section id="contact" className="pb-20 bg-gray-50/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="text-center mb-16">
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-            className="text-sm text-primary uppercase tracking-wider font-medium"
-          >
-            Get In Touch
-          </motion.p>
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            viewport={{ once: true }}
-            className="mt-2 text-3xl font-bold text-gray-900"
-          >
-            Contact Us Today
-          </motion.h2>
-        </div>
+        <SectionTitle
+          title="Contact Us Today"
+          subtitle="Get In Touch"
+          sectionId="contact"
+        />
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
           {/* Contact Information */}

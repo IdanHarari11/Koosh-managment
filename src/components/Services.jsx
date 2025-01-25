@@ -13,6 +13,7 @@ import {
   FaTools,
   FaCalendarCheck
 } from 'react-icons/fa';
+import SectionTitle from './SectionTitle';
 
 const services = [
   {
@@ -122,30 +123,13 @@ const services = [
 
 const Services = () => {
   return (
-    <section className="py-16 bg-gray-50/50">
+    <section className="py-20 bg-gray-50/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-            className="text-sm text-primary uppercase tracking-wider font-medium"
-          >
-            Our Services
-          </motion.p>
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            viewport={{ once: true }}
-            className="mt-2 text-3xl md:text-4xl font-bold text-gray-900"
-          >
-            Everything You Need for Your{' '}
-            <span className="text-primary">Property</span>
-          </motion.h2>
-        </div>
-
+        <SectionTitle
+          title="Our Services"
+          subtitle="What We Offer"
+          sectionId="services"
+        />
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 auto-rows-[200px] gap-6">
           {services.map((service, index) => (
             <motion.div

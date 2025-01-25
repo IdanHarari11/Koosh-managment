@@ -14,7 +14,8 @@ import {
   FaTools,
   FaBell,
   FaUserCog,
-  FaClipboardList
+  FaClipboardList,
+  FaLink
 } from 'react-icons/fa';
 import { useState, useRef } from 'react';
 
@@ -130,6 +131,15 @@ const WorkflowSection = () => {
     target: containerRef,
     offset: ["start end", "end 100%"]
   });
+  const [showCopy, setShowCopy] = useState(false);
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = async () => {
+    const url = `${window.location.origin}/#workflow`;
+    await navigator.clipboard.writeText(url);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   // Adjusted timing for step animations to complete within view
   const getStepProgress = (index) => {
@@ -161,18 +171,42 @@ const WorkflowSection = () => {
             >
               Our Process
             </motion.p>
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              viewport={{ once: true }}
-              className="mt-2 text-3xl md:text-4xl font-bold text-gray-900 leading-tight"
+            <div 
+              className="relative inline-flex items-center justify-center lg:justify-start"
+              onMouseEnter={() => setShowCopy(true)}
+              onMouseLeave={() => setShowCopy(false)}
             >
-              How We Make It{' '}
-              <span className="text-primary">Simple</span>
-            </motion.h2>
+              <motion.button
+                initial={{ opacity: 0 }}
+                animate={{ opacity: showCopy ? 1 : 0 }}
+                onClick={handleCopy}
+                className="absolute -left-12 p-2 text-gray-400 hover:text-primary transition-colors duration-200"
+              >
+                <FaLink className="w-4 h-4" />
+              </motion.button>
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                viewport={{ once: true }}
+                className="mt-2 text-3xl md:text-4xl font-bold text-gray-900 leading-tight"
+              >
+                How We Make It{' '}
+                <span className="text-primary">Simple</span>
+              </motion.h2>
+              {copied && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 10 }}
+                  className="absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-sm px-3 py-1 rounded"
+                >
+                  URL Copied!
+                </motion.div>
+              )}
+            </div>
             <motion.p
-              initial={{ opacity: 0, y: 20 }}ןא
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
               viewport={{ once: true }}

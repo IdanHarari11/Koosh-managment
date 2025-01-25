@@ -3,6 +3,7 @@
 import { useEffect } from 'react';
 import { motion, useAnimationControls } from 'framer-motion';
 import Image from 'next/image';
+import SectionTitle from './SectionTitle';
 
 const partners = [
   {
@@ -50,8 +51,13 @@ const Partners = () => {
   }, [controls]);
 
   return (
-    <section className="py-12 bg-gray-50/50 overflow-hidden">
+    <section className="py-16 bg-gray-50/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <SectionTitle
+          title="Our Trusted Partners"
+          subtitle="Partnerships"
+          sectionId="partners"
+        />
         <div className="text-center">
           <motion.p
             initial={{ opacity: 0, y: 20 }}

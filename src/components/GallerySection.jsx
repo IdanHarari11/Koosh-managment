@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { HiChevronLeft, HiChevronRight } from 'react-icons/hi';
+import SectionTitle from './SectionTitle';
 
 const images = [
   {
@@ -89,6 +90,11 @@ const GallerySection = () => {
   return (
     <div className="bg-gray-50/50 py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <SectionTitle
+          title="Experience Luxury Property Management"
+          subtitle="Our Gallery"
+          sectionId="gallery"
+        />
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Gallery Section */}
           <div className="relative h-[400px] md:h-[500px] w-full overflow-hidden">
