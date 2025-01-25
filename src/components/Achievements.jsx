@@ -1,75 +1,113 @@
 'use client';
 
-import { useInView } from 'react-intersection-observer';
 import { motion } from 'framer-motion';
-import { useState, useEffect } from 'react';
+import { FaStar, FaHome, FaUsers, FaHandshake, FaAward } from 'react-icons/fa';
 
 const achievements = [
-  { number: 100, title: 'Properties Managed', suffix: '+' },
-  { number: 5, title: 'Cities Covered', suffix: '' },
-  { number: 20, title: 'Increased ROI for Clients', suffix: '%' },
+  {
+    icon: FaStar,
+    value: '4.9',
+    label: 'Average Rating',
+    suffix: '/5',
+    color: 'from-yellow-500 to-amber-600',
+    showOnMobile: true
+  },
+  {
+    icon: FaHome,
+    value: '500',
+    label: 'Properties Managed',
+    suffix: '+',
+    color: 'from-blue-500 to-cyan-600',
+    showOnMobile: true
+  },
+  {
+    icon: FaUsers,
+    value: '10k',
+    label: 'Happy Guests',
+    suffix: '+',
+    color: 'from-green-500 to-emerald-600',
+    showOnMobile: true
+  },
+  {
+    icon: FaHandshake,
+    value: '98',
+    label: 'Host Satisfaction',
+    suffix: '%',
+    color: 'from-purple-500 to-indigo-600',
+    showOnMobile: false
+  },
+  {
+    icon: FaAward,
+    value: '5',
+    label: 'Years Experience',
+    suffix: '+',
+    color: 'from-red-500 to-rose-600',
+    showOnMobile: false
+  }
 ];
 
-const Counter = ({ value, suffix }) => {
-  const [count, setCount] = useState(0);
-  const { ref, inView } = useInView({
-    threshold: 0.3,
-    triggerOnce: true,
-  });
-
-  useEffect(() => {
-    if (inView) {
-      let start = 0;
-      const end = value;
-      const duration = 2000;
-      const increment = end / (duration / 16);
-
-      const timer = setInterval(() => {
-        start += increment;
-        if (start >= end) {
-          setCount(end);
-          clearInterval(timer);
-        } else {
-          setCount(Math.floor(start));
-        }
-      }, 16);
-
-      return () => clearInterval(timer);
-    }
-  }, [inView, value]);
-
-  return <span ref={ref}>{count}{suffix}</span>;
-};
-
 const Achievements = () => {
-  const { ref, inView } = useInView({
-    threshold: 0.1,
-    triggerOnce: true,
-  });
-
   return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0 }}
-      animate={inView ? { opacity: 1 } : { opacity: 0 }}
-      transition={{ duration: 0.8 }}
-    >
-      <div className="grid grid-cols-3 gap-2 md:gap-4 text-center">
-        {achievements.map((achievement) => (
-          <div
-            key={achievement.title}
-            className="p-2 md:p-4 rounded-lg bg-white/5 backdrop-blur-sm"
-          >
-            <div className="text-xl md:text-3xl font-bold text-white mb-0.5 md:mb-1">
-              <Counter value={achievement.number} suffix={achievement.suffix} />
+    <div className="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-5 gap-1.5 md:gap-3 lg:gap-4 px-1 md:px-0">
+      {achievements.map((achievement, index) => (
+        <motion.div
+          key={achievement.label}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: index * 0.1 }}
+          whileHover={{ 
+            scale: 1.05,
+            transition: { duration: 0.2 }
+          }}
+          className={`group relative overflow-hidden 
+                     ${!achievement.showOnMobile ? 'hidden lg:block' : ''}`}
+        >
+          <div className="flex flex-col items-center text-center p-1.5 md:p-2 rounded-lg md:rounded-xl 
+                        bg-white/10 backdrop-blur-sm border border-white/20
+                        relative z-10">
+            {/* Glowing background effect */}
+            <div className={`absolute inset-0 opacity-20 bg-gradient-to-br ${achievement.color}
+                           group-hover:opacity-30 transition-opacity duration-300`} />
+            
+            {/* Animated icon container */}
+            <div className="relative">
+              <motion.div
+                className={`w-6 h-6 md:w-8 md:h-8 rounded-full bg-gradient-to-br ${achievement.color} 
+                           flex items-center justify-center mb-1 md:mb-2
+                           group-hover:shadow-lg group-hover:shadow-white/20 transition-shadow duration-300`}
+                whileHover={{ rotate: 360 }}
+                transition={{ duration: 0.5 }}
+              >
+                <achievement.icon className="w-3 h-3 md:w-4 md:h-4 text-white" />
+              </motion.div>
+              
+              {/* Pulsing ring effect - hidden on mobile */}
+              <div className={`absolute inset-0 rounded-full bg-gradient-to-br ${achievement.color}
+                             opacity-0 group-hover:opacity-20 animate-ping hidden md:block`} />
             </div>
-            <div className="text-white/90 font-medium text-xs md:text-sm">
-              {achievement.title}
+
+            {/* Value with animated counting effect */}
+            <motion.div
+              className="text-sm md:text-xl font-bold text-white relative"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3, delay: index * 0.1 + 0.2 }}
+            >
+              <span className="relative z-10 whitespace-nowrap">
+                {achievement.value}
+                <span className="text-white/80">{achievement.suffix}</span>
+              </span>
+            </motion.div>
+
+            {/* Label with gradient text effect */}
+            <div className={`text-[10px] md:text-xs font-medium bg-gradient-to-r ${achievement.color}
+                           bg-clip-text text-transparent mt-0.5 md:mt-1 leading-tight`}>
+              {achievement.label}
             </div>
           </div>
-        ))}
-      </div>
-    </motion.div>
+        </motion.div>
+      ))}
+    </div>
   );
 };
 
