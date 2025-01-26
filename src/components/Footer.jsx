@@ -44,7 +44,7 @@ const Footer = () => {
           <div className="col-span-1">
             <Link href="/" className="block mb-6">
               <Image
-                src="/logo.png"
+                src="/images/logo.png"
                 alt="Company Logo"
                 width={120}
                 height={40}
