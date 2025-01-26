@@ -80,7 +80,11 @@ const ContactSection = () => {
                     {info.title}
                   </h3>
                   <p className="mt-1 text-primary font-medium">
-                    {info.details}
+                    {info.title === 'Call Us' ? (
+                      <a href={`tel:${info.details}`}>{info.details}</a>
+                    ) : (
+                      info.details
+                    )}
                   </p>
                   <p className="text-sm text-gray-600">
                     {info.description}
@@ -187,4 +191,4 @@ const ContactSection = () => {
   );
 };
 
-export default ContactSection; 
+export default ContactSection;
