@@ -26,6 +26,14 @@ export const metadata = {
     siteName: 'Koosh Management',
     locale: 'en_US',
     type: 'website',
+    images: [
+      {
+        url: '/images/logo.png',
+        width: 800,
+        height: 600,
+        alt: 'Koosh Management Logo',
+      },
+    ],
   },
 
   // Twitter metadata
@@ -33,6 +41,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Koosh Management - Premium Property Management',
     description: 'Professional property management solutions for maximizing your investment returns.',
+    images: '/images/logo.png',
   },
 
   // Robots metadata
