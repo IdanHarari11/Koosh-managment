@@ -103,6 +103,7 @@ const Home = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
+              onClick={() => window.open('https://koosh.holidayfuture.com/', '_blank')}
               className="mt-8 px-8 py-3 bg-primary hover:bg-primary/90 text-white rounded-full font-medium transition-colors duration-200"
             >
               Get Started
@@ -150,4 +151,4 @@ const Home = () => {
   );
 };
 
-export default Home; 
+export default Home;

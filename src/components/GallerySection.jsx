@@ -245,6 +245,7 @@ const GallerySection = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={() => window.open('https://koosh.holidayfuture.com/', '_blank')}
                 className="px-8 py-3 bg-primary text-white rounded-full font-medium
                          hover:bg-primary/90 transition-colors duration-200"
               >
@@ -258,4 +259,4 @@ const GallerySection = () => {
   );
 };
 
-export default GallerySection; 
+export default GallerySection;

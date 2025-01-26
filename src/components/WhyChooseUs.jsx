@@ -129,6 +129,7 @@ const WhyChooseUs = () => {
               viewport={{ once: true }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => window.open('https://koosh.holidayfuture.com/', '_blank')}
               className="mt-8 px-8 py-3 bg-primary text-white rounded-full font-medium
                        hover:bg-primary/90 transition-colors duration-200 w-fit"
             >
@@ -210,4 +211,4 @@ const WhyChooseUs = () => {
   );
 };
 
-export default WhyChooseUs; 
+export default WhyChooseUs;
