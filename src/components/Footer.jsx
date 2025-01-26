@@ -53,7 +53,6 @@ const contactInfo = [
 ];
 
 const Footer = () => {
-
   return (
     <footer className="bg-gray-900 text-gray-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -98,27 +97,23 @@ const Footer = () => {
           <div className="col-span-1">
             <h3 className="text-white font-semibold mb-4">Contact Us</h3>
             <ul className="space-y-3">
-              <li className="flex items-center gap-3 text-sm">
-                <FaEnvelope className="text-primary" />
-                <a href="mailto:kooshmanagement@gmail.com" className="hover:text-white transition-colors duration-200">
-                  kooshmanagement@gmail.com
-                </a>
-              </li>
-              <li className="flex items-center gap-3 text-sm">
-                <FaPhone className="text-primary" />
-                <a href="tel:+1234567890" className="hover:text-white transition-colors duration-200">
-                  (965) 319-7577
-                </a>
-              </li>
-              <li className="flex items-start gap-3 text-sm">
-                <FaMapMarkerAlt className="text-primary mt-1" />
-                <span>
-                  <a href={contactInfo[2].mapLink} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-200">
-                    20225 NE 34th CT<br />
-                    Aventura, FL 33180
-                  </a>
-                </span>
-              </li>
+              {contactInfo.map((info) => (
+                <li key={info.title} className="flex items-start gap-3 text-sm">
+                  <info.icon className="text-primary mt-1" />
+                  <span>
+                    {info.title === 'Visit Us' ? (
+                      <a href={info.mapLink} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-200">
+                        {info.details}<br />
+                        {info.description}
+                      </a>
+                    ) : (
+                      <a href={info.link} className="hover:text-white transition-colors duration-200">
+                        {info.details}
+                      </a>
+                    )}
+                  </span>
+                </li>
+              ))}
             </ul>
           </div>
 
