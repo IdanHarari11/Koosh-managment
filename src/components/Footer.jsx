@@ -30,10 +30,29 @@ const socialLinks = [
   { icon: FaLinkedinIn, href: '#', label: 'LinkedIn' },
 ];
 
+const contactInfo = [
+  {
+    icon: FaEnvelope,
+    title: 'Email Us',
+    details: 'kooshmanagement@gmail.com',
+    link: 'mailto:kooshmanagement@gmail.com',
+  },
+  {
+    icon: FaPhone,
+    title: 'Call Us',
+    details: '(965) 319-7577',
+    link: 'tel:+1234567890',
+  },
+  {
+    icon: FaMapMarkerAlt,
+    title: 'Visit Us',
+    details: '20225 NE 34th CT',
+    description: 'Aventura, FL 33180',
+    mapLink: 'https://www.google.com/maps/search/?api=1&query=20225+NE+34th+CT+Aventura+FL+33180',
+  },
+];
+
 const Footer = () => {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
 
   return (
     <footer className="bg-gray-900 text-gray-300">
@@ -94,8 +113,10 @@ const Footer = () => {
               <li className="flex items-start gap-3 text-sm">
                 <FaMapMarkerAlt className="text-primary mt-1" />
                 <span>
-                  20225 NE 34th CT<br />
-                  Aventura, FL 33180
+                  <a href={contactInfo[2].mapLink} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-200">
+                    20225 NE 34th CT<br />
+                    Aventura, FL 33180
+                  </a>
                 </span>
               </li>
             </ul>
@@ -149,4 +170,4 @@ const Footer = () => {
   );
 };
 
-export default Footer; 
+export default Footer;

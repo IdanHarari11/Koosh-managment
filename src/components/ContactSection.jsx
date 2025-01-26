@@ -23,6 +23,7 @@ const contactInfo = [
     title: 'Visit Us',
     details: '20225 NE 34th CT',
     description: 'Aventura, FL 33180',
+    mapLink: 'https://www.google.com/maps/search/?api=1&query=20225+NE+34th+CT+Aventura+FL+33180',
   },
 ];
 
@@ -84,6 +85,8 @@ const ContactSection = () => {
                       <a href={`tel:${info.details}`}>{info.details}</a>
                     ) : info.title === 'Email Us' ? (
                       <a href={`mailto:${info.details}`}>{info.details}</a>
+                    ) : info.title === 'Visit Us' ? (
+                      <a href={info.mapLink} target="_blank" rel="noopener noreferrer">{info.details}</a>
                     ) : (
                       info.details
                     )}
