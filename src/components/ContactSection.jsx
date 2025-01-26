@@ -82,6 +82,8 @@ const ContactSection = () => {
                   <p className="mt-1 text-primary font-medium">
                     {info.title === 'Call Us' ? (
                       <a href={`tel:${info.details}`}>{info.details}</a>
+                    ) : info.title === 'Email Us' ? (
+                      <a href={`mailto:${info.details}`}>{info.details}</a>
                     ) : (
                       info.details
                     )}
