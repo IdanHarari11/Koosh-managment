@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { HiMenu, HiX } from 'react-icons/hi';
+import Image from 'next/image';
 
 const navItems = [
   { name: 'Home', sectionId: 'home' },
@@ -62,7 +63,13 @@ const Navbar = () => {
                 scrolled ? 'text-primary' : 'text-white'
               }`}
             >
-              Koosh-Management
+              <Image 
+                src="/images/logo.png" 
+                alt="Koosh-Management Logo" 
+                priority 
+                width={110} 
+                height={50} 
+              />
             </button>
           </div>
 
