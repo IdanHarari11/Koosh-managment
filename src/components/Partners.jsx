@@ -104,6 +104,7 @@ const Partners = () => {
                       src={partner.logo}
                       alt={partner.name}
                       fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       className="object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
                     />
                   </div>
@@ -120,6 +121,7 @@ const Partners = () => {
                       src={partner.logo}
                       alt={partner.name}
                       fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       className="object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
                     />
                   </div>
