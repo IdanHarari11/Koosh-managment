@@ -74,12 +74,6 @@ export const metadata = {
       url: '/apple-touch-icon-precomposed.png',
     },
   },
-
-  // Manifest for PWA
-  manifest: '/manifest.json',
-
-  // Theme color
-  themeColor: '#000000', // Your primary color
 };
 
 export default function RootLayout({ children }) {
