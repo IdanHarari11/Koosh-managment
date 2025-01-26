@@ -14,7 +14,7 @@ const achievements = [
   },
   {
     icon: FaHome,
-    value: '500',
+    value: '50',
     label: 'Properties Managed',
     suffix: '+',
     color: 'from-blue-500 to-cyan-600',

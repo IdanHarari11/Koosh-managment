@@ -86,10 +86,6 @@ const services = [
     height: 'row-span-2',
     color: 'bg-amber-50',
     iconColor: 'text-amber-500',
-    button: {
-      text: 'View Portfolio',
-      action: '/portfolio',
-    },
   },
   {
     icon: FaCreditCard,

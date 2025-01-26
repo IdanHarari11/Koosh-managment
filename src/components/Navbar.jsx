@@ -49,7 +49,7 @@ const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled ? 'bg-white/80 backdrop-blur-md' : 'bg-transparent'
+        scrolled ? 'bg-[#11111100] backdrop-blur-lg border-none' : 'bg-transparent'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -101,19 +101,17 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       <motion.div
-        initial={{ opacity: 0, height: 0 }}
-        animate={{ opacity: isMenuOpen ? 1 : 0, height: isMenuOpen ? 'auto' : 0 }}
+        initial={{ height: 0 }}
+        animate={{ height: isMenuOpen ? 'auto' : 0 }}
         transition={{ duration: 0.3 }}
-        className={`md:hidden ${
-          scrolled ? 'bg-white/90 backdrop-blur-md' : 'bg-white'
-        }`}
+        className={`md:hidden bg-white/60 backdrop-blur-lg border-none`}
       >
         <div className="px-4 pt-2 pb-3 space-y-1">
           {navItems.map((item) => (
             <button
               key={item.name}
               onClick={() => scrollToSection(item.sectionId)}
-              className="block py-3 text-gray-700 hover:text-primary transition-colors duration-200 font-medium border-b border-gray-100 last:border-0 w-full text-left"
+              className="block py-3 text-gray-700 hover:text-primary transition-colors duration-200 font-medium w-full text-left"
             >
               {item.name}
             </button>
@@ -124,4 +122,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar; 
+export default Navbar;
