@@ -9,20 +9,20 @@ const contactInfo = [
   {
     icon: FaEnvelope,
     title: 'Email Us',
-    details: 'info@koosh.com',
+    details: 'kooshmanagement@gmail.com',
     description: '24/7 online support',
   },
   {
     icon: FaPhone,
     title: 'Call Us',
-    details: '(123) 456-7890',
+    details: '(965) 319-7577',
     description: 'Mon-Fri from 8am to 5pm',
   },
   {
     icon: FaMapMarkerAlt,
     title: 'Visit Us',
-    details: '123 Business Street',
-    description: 'City, State 12345',
+    details: '20225 NE 34th CT',
+    description: 'Aventura, FL 33180',
   },
 ];
 

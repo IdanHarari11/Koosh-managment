@@ -81,21 +81,21 @@ const Footer = () => {
             <ul className="space-y-3">
               <li className="flex items-center gap-3 text-sm">
                 <FaEnvelope className="text-primary" />
-                <a href="mailto:info@koosh.com" className="hover:text-white transition-colors duration-200">
-                  info@koosh.com
+                <a href="mailto:kooshmanagement@gmail.com" className="hover:text-white transition-colors duration-200">
+                  kooshmanagement@gmail.com
                 </a>
               </li>
               <li className="flex items-center gap-3 text-sm">
                 <FaPhone className="text-primary" />
                 <a href="tel:+1234567890" className="hover:text-white transition-colors duration-200">
-                  (123) 456-7890
+                  (965) 319-7577
                 </a>
               </li>
               <li className="flex items-start gap-3 text-sm">
                 <FaMapMarkerAlt className="text-primary mt-1" />
                 <span>
-                  123 Business Street<br />
-                  City, State 12345
+                  20225 NE 34th CT<br />
+                  Aventura, FL 33180
                 </span>
               </li>
             </ul>
