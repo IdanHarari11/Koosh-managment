@@ -8,27 +8,35 @@ import SectionTitle from './SectionTitle';
 const partners = [
   {
     name: 'Booking.com',
-    logo: '/images/partners/booking.svg',
+    logo: '/images/partners/bookingLogo.svg.png',
   },
   {
     name: 'Airbnb',
-    logo: '/images/partners/airbnb.svg',
+    logo: '/images/partners/airbnbLogo.png',
   },
   {
     name: 'VRBO',
-    logo: '/images/partners/vrbo.svg',
+    logo: '/images/partners/vrboLogo.png',
   },
   {
     name: 'Expedia',
-    logo: '/images/partners/expedia.svg',
+    logo: '/images/partners/expediaLogo.svg',
   },
   {
     name: 'TripAdvisor',
-    logo: '/images/partners/tripadvisor.svg',
+    logo: '/images/partners/tripAdvisorLogo.png',
   },
   {
     name: 'Hotels.com',
-    logo: '/images/partners/hotels.svg',
+    logo: '/images/partners/hotels.comLogo.png',
+  },
+  {
+    name: 'Trivago',
+    logo: '/images/partners/trivagoLogo.png',
+  },
+  {
+    name: 'Kayak',
+    logo: '/images/partners/kayakLogo.png',
   },
 ];
 
@@ -129,4 +137,4 @@ const Partners = () => {
   );
 };
 
-export default Partners; 
+export default Partners;
