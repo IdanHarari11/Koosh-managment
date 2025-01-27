@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { HiMenu, HiX } from 'react-icons/hi';
 import Image from 'next/image';
+import useScrollToSection from '@/hooks/useScrollToSection';
 
 const navItems = [
   { name: 'Home', sectionId: 'home' },
@@ -18,6 +19,7 @@ const navItems = [
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { scrollToSection } = useScrollToSection();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,23 +29,6 @@ const Navbar = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const scrollToSection = (sectionId) => {
-    setIsMenuOpen(false);
-    const element = document.getElementById(sectionId);
-    if (element) {
-      const offset = 80; // Height of the fixed navbar
-      const bodyRect = document.body.getBoundingClientRect().top;
-      const elementRect = element.getBoundingClientRect().top;
-      const elementPosition = elementRect - bodyRect;
-      const offsetPosition = elementPosition - offset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
-    }
-  };
 
   return (
     <motion.nav
@@ -58,7 +43,7 @@ const Navbar = () => {
           {/* Logo */}
           <div className="flex-shrink-0">
             <button 
-              onClick={() => scrollToSection('home')}
+              onClick={() => scrollToSection('home', setIsMenuOpen(false))}
               className={`text-2xl font-bold ${
                 scrolled ? 'text-primary' : 'text-white'
               }`}
@@ -78,7 +63,7 @@ const Navbar = () => {
             {navItems.map((item) => (
               <button
                 key={item.name}
-                onClick={() => scrollToSection(item.sectionId)}
+                onClick={() => scrollToSection(item.sectionId, setIsMenuOpen(false))}
                 className={`font-medium transition-colors duration-200 ${
                   scrolled ? 'text-gray-700 hover:text-primary' : 'text-white hover:text-primary'
                 }`}
@@ -129,7 +114,7 @@ const Navbar = () => {
               {navItems.map((item) => (
                 <motion.button
                   key={item.name}
-                  onClick={() => scrollToSection(item.sectionId)}
+                  onClick={() => scrollToSection(item.sectionId, setIsMenuOpen(false))}
                   variants={{
                     hidden: { opacity: 0, y: -20 },
                     visible: { opacity: 1, y: 0 }

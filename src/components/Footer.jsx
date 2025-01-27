@@ -1,5 +1,6 @@
 'use client';
 
+import useScrollToSection from '@/hooks/useScrollToSection';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -15,12 +16,13 @@ import {
 } from 'react-icons/fa';
 
 const quickLinks = [
-  { name: 'Home', href: '/' },
-  { name: 'About Us', href: '/about' },
-  { name: 'Services', href: '/services' },
-  { name: 'Contact', href: '/contact' },
-  { name: 'Privacy Policy', href: '/privacy' },
-  { name: 'Terms & Conditions', href: '/terms' },
+  { name: 'Home', sectionId: 'home' },
+  { name: 'Partners', sectionId: 'partners' },
+  { name: 'Gallery', sectionId: 'gallery' },
+  { name: 'Why Choose Us', sectionId: 'why-choose-us' },
+  { name: 'Services', sectionId: 'services' },
+  { name: 'How It Works', sectionId: 'workflow' },
+  { name: 'Contact', sectionId: 'contact' },
 ];
 
 const socialLinks = [
@@ -53,6 +55,8 @@ const contactInfo = [
 ];
 
 const Footer = () => {
+  const { scrollToSection } = useScrollToSection();
+
   return (
     <footer className="bg-gray-900 text-gray-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -82,12 +86,12 @@ const Footer = () => {
             <ul className="space-y-2">
               {quickLinks.map((link) => (
                 <li key={link.name}>
-                  <Link
-                    href={link.href}
+                  <button
+                    onClick={() => scrollToSection(link.sectionId)}
                     className="text-sm hover:text-white transition-colors duration-200"
                   >
                     {link.name}
-                  </Link>
+                  </button>
                 </li>
               ))}
             </ul>
@@ -150,11 +154,11 @@ const Footer = () => {
               © {new Date().getFullYear()} Koosh Management. All rights reserved.
             </p>
             <div className="flex gap-4 text-sm">
-              <Link href="/privacy" className="hover:text-white transition-colors duration-200">
+              <Link href="/" className="hover:text-white transition-colors duration-200">
                 Privacy Policy
               </Link>
               <span>•</span>
-              <Link href="/terms" className="hover:text-white transition-colors duration-200">
+              <Link href="/" className="hover:text-white transition-colors duration-200">
                 Terms of Service
               </Link>
             </div>
