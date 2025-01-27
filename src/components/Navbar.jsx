@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { HiMenu, HiX } from 'react-icons/hi';
 import Image from 'next/image';
 
@@ -91,7 +91,7 @@ const Navbar = () => {
           {/* Mobile Menu Button */}
           <div className="md:hidden">
             <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              onClick={() => setIsMenuOpen((prev) => !prev)}
               className={`p-2 rounded-md ${
                 scrolled ? 'text-gray-700' : 'text-white'
               }`}
@@ -107,24 +107,42 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Menu */}
-      <motion.div
-        initial={{ height: 0 }}
-        animate={{ height: isMenuOpen ? 'auto' : 0 }}
-        transition={{ duration: 0.3 }}
-        className={`md:hidden bg-white/60 backdrop-blur-lg border-none`}
-      >
-        <div className="px-4 pt-2 pb-3 space-y-1">
-          {navItems.map((item) => (
-            <button
-              key={item.name}
-              onClick={() => scrollToSection(item.sectionId)}
-              className="block py-3 text-gray-700 hover:text-primary transition-colors duration-200 font-medium w-full text-left"
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.2, when: "beforeChildren" }}
+            className={`md:hidden bg-white/60 backdrop-blur-lg border-none`}
+          >
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              exit="hidden"
+              variants={{
+                hidden: { opacity: 0, y: -20 },
+                visible: { opacity: 1, y: 0, transition: { staggerChildren: 0.04 } }
+              }}
+              className="px-4 pt-2 pb-3 space-y-1"
             >
-              {item.name}
-            </button>
-          ))}
-        </div>
-      </motion.div>
+              {navItems.map((item) => (
+                <motion.button
+                  key={item.name}
+                  onClick={() => scrollToSection(item.sectionId)}
+                  variants={{
+                    hidden: { opacity: 0, y: -20 },
+                    visible: { opacity: 1, y: 0 }
+                  }}
+                  className="block py-3 text-gray-700 hover:text-primary transition-colors duration-200 font-medium w-full text-left"
+                >
+                  {item.name}
+                </motion.button>
+              ))}
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.nav>
   );
 };
