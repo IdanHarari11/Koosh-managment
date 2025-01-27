@@ -71,7 +71,7 @@ const services = [
     iconColor: 'text-teal-500',
     button: {
       text: 'View Policy',
-      action: '/insurance-policy',
+      action: 'https://drive.google.com/file/d/1tf5LWrTqoij5Gtw7Ed9FgbM-ndrRjWBB/view?usp=drive_link',
     },
   },
   {
@@ -167,6 +167,7 @@ const Services = () => {
                            font-medium hover:bg-gray-50 transition-colors duration-200
                            shadow-sm hover:shadow w-full sm:w-auto
                            ${service.height === 'row-span-1' ? 'mt-auto' : 'mt-3'}`}
+                  onClick={() => window.open(service.button.action, '_blank')}
                 >
                   {service.button.text}
                 </motion.button>
@@ -179,4 +180,4 @@ const Services = () => {
   );
 };
 
-export default Services; 
+export default Services;
