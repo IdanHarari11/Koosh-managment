@@ -40,7 +40,7 @@ const contactInfo = [
   {
     icon: FaPhone,
     title: 'Call Us',
-    details: '(965) 319-7577',
+    details: '(954) 319-7577',
     link: 'tel:+1234567890',
   },
   {

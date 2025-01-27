@@ -15,7 +15,7 @@ const contactInfo = [
   {
     icon: FaPhone,
     title: 'Call Us',
-    details: '(965) 319-7577',
+    details: '(954) 319-7577',
     description: 'Mon-Fri from 8am to 5pm',
   },
   {
@@ -32,7 +32,7 @@ const ContactSection = () => {
     name: '',
     email: '',
     phone: '',
-    subject: '',
+    propertyAddress: '',
     message: '',
   });
 
@@ -151,14 +151,14 @@ const ContactSection = () => {
                   />
                 </div>
                 <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-gray-700">
-                    Subject
+                  <label htmlFor="propertyAddress" className="block text-sm font-medium text-gray-700">
+                    Property address
                   </label>
                   <input
                     type="text"
-                    id="subject"
-                    name="subject"
-                    value={formData.subject}
+                    id="propertyAddress"
+                    name="propertyAddress"
+                    value={formData.propertyAddress}
                     onChange={handleChange}
                     className="mt-1 w-full rounded-lg border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary/50"
                     required
