@@ -42,9 +42,9 @@ const teamMembers = [
   },
   {
     name: 'Yarden Elbaz',
-    role: 'Guest Experience Director',
+    role: 'General Manager',
     image: '/images/team/YardenElbaz.jpeg',
-    bio: 'Dedicated to creating exceptional experiences for every guest.',
+    bio: 'Passionate Airbnb General Manager, making stays seamless and maximizing property success. Expert in guest experience, team leadership, and boosting bookings with smart strategies.',
     social: {
       linkedin: 'https://linkedin.com',
       twitter: 'https://twitter.com',
@@ -66,7 +66,7 @@ const teamMembers = [
     name: 'Shamir Hayat',
     role: 'Property Manager',
     image: '/images/team/Shamir.jpeg',
-    bio: 'Specialized in luxury property management and guest relations.',
+    bio: 'Experienced Property Manager focused on smooth operations, guest satisfaction, and maximizing rental success.',
     social: {
       linkedin: 'https://linkedin.com',
       twitter: 'https://twitter.com',

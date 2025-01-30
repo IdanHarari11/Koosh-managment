@@ -76,6 +76,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
+      <link
+          rel="apple-touch-icon"
+          href="/apple-icon?<generated>"
+          type="image/<generated>"
+          sizes="<generated>"
+        />
         {/* Verification tags */}
         <meta name="google-site-verification" content="your-google-verification-code" />
         <meta name="facebook-domain-verification" content="your-facebook-verification-code" />
