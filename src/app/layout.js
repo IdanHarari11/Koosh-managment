@@ -12,39 +12,53 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: 'Koosh Management',
-  description: 'Premium Property Management Solutions: Maximizing Your Investment with Professional Services, Smart Technology, and Exceptional Guest Experiences. Transform Your Property into a High-Performing Asset.',
+  metadataBase: new URL('https://kooshmanagement.com'),
+  title: 'Koosh Management - Premium Property Management',
+  description: `Professional Airbnb management services maximizing your property's potential with exceptional guest experiences and reliable property care.`,
   
   // Basic metadata
-  keywords: 'property management, airbnb management, vacation rentals, property investment, rental optimization, guest experience, property services, smart property management, luxury rentals, property maintenance',
-  author: 'Koosh Management',
+  keywords: 'property management, airbnb management, vacation rentals, property investment, rental optimization, guest experience',
+  authors: [{ name: 'Koosh Management' }],
   
-  // Open Graph metadata for social sharing
+  // Open Graph metadata
   openGraph: {
-    title: 'Koosh Management - Premium Property Management Solutions',
-    description: 'Transform your property into a high-performing asset with professional management, smart technology, and exceptional guest experiences.',
-    siteName: 'Koosh Management',
-    locale: 'en_US',
     type: 'website',
+    locale: 'en_US',
+    url: 'https://kooshmanagement.com',
+    siteName: 'Koosh Management',
+    title: 'Koosh Management - Premium Property Management',
+    description: 'Transform your property into a high-performing asset with professional management and exceptional guest experiences.',
     images: [
       {
-        url: '/images/logo.png',
-        width: 800,
-        height: 600,
+        url: '/images/og-image.png', // Your 270x250 logo
+        width: 270,
+        height: 250,
         alt: 'Koosh Management Logo',
       },
+      {
+        url: '/images/og-image.png', // Optional: Additional OG image with 1200x630 ratio
+        width: 1200,
+        height: 630,
+        alt: 'Koosh Management - Premium Property Management Services',
+      }
     ],
   },
 
   // Twitter metadata
   twitter: {
-    card: 'summary_large_image',
+    card: 'summary',  // Changed to 'summary' for square logo
+    site: '@kooshmanagement',
+    creator: '@kooshmanagement',
     title: 'Koosh Management - Premium Property Management',
     description: 'Professional property management solutions for maximizing your investment returns.',
-    images: '/images/logo.png',
+    images: ['/images/og-image.png'], // Using the square logo for Twitter
   },
 
-  // Robots metadata
+  // Additional metadata
+  alternates: {
+    canonical: 'https://kooshmanagement.com',
+  },
+  
   robots: {
     index: true,
     follow: true,
@@ -56,41 +70,21 @@ export const metadata = {
       'max-snippet': -1,
     },
   },
-
-  // Verification for search consoles
-  verification: {
-    google: 'your-google-verification-code',
-    yandex: 'your-yandex-verification-code',
-    yahoo: 'your-yahoo-verification-code',
-  },
-
-  // Alternative languages
-  alternates: {
-    canonical: 'https://kooshmanagement.com',
-    languages: {
-      'en-US': 'https://kooshmanagement.com',
-      // Add other languages if available
-    },
-  },
-
-  // Icons
-  icons: {
-    icon: '../../images/logo.png',
-    shortcut: '/favicon-16x16.png',
-    apple: '/apple-touch-icon.png',
-    other: {
-      rel: 'apple-touch-icon-precomposed',
-      url: '/apple-touch-icon-precomposed.png',
-    },
-  },
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <head>
+        {/* Verification tags */}
+        <meta name="google-site-verification" content="your-google-verification-code" />
+        <meta name="facebook-domain-verification" content="your-facebook-verification-code" />
+        
+        {/* Favicon */}
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+      </head>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         {children}
       </body>
     </html>

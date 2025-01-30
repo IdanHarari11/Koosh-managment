@@ -19,7 +19,18 @@ const teamMembers = [
     }
   },
   {
-    name: 'Shakar',
+    name: 'Yani Gantz',
+    role: 'Cleaning Manger Operation',
+    image: '/images/team/Yani.jpeg',
+    bio: 'Leading our cleaning operations with exceptional attention to detail. Ensures every property meets our high standards of cleanliness and guest satisfaction.',
+    social: {
+      linkedin: 'https://linkedin.com',
+      twitter: 'https://twitter.com',
+      email: 'mailto:michael@kooshmanagement.com'
+    }
+  },
+  {
+    name: 'Shakar Bangash',
     role: 'Operations Manager',
     image: '/images/team/Shakar.jpeg',
     bio: 'Expert in streamlining property management operations and guest experiences.',
@@ -27,6 +38,17 @@ const teamMembers = [
       linkedin: 'https://linkedin.com',
       twitter: 'https://twitter.com',
       email: 'mailto:sarah@kooshmanagement.com'
+    }
+  },
+  {
+    name: 'Yarden Elbaz',
+    role: 'Guest Experience Director',
+    image: '/images/team/YardenElbaz.jpeg',
+    bio: 'Dedicated to creating exceptional experiences for every guest.',
+    social: {
+      linkedin: 'https://linkedin.com',
+      twitter: 'https://twitter.com',
+      email: 'mailto:emma@kooshmanagement.com'
     }
   },
   {
@@ -41,16 +63,16 @@ const teamMembers = [
     }
   },
   {
-    name: 'Yarden Elbaz',
-    role: 'Guest Experience Director',
-    image: '/images/team/YardenElbaz.jpeg',
-    bio: 'Dedicated to creating exceptional experiences for every guest.',
+    name: 'Shamir Hayat',
+    role: 'Property Manager',
+    image: '/images/team/Shamir.jpeg',
+    bio: 'Specialized in luxury property management and guest relations.',
     social: {
       linkedin: 'https://linkedin.com',
       twitter: 'https://twitter.com',
-      email: 'mailto:emma@kooshmanagement.com'
+      email: 'mailto:michael@kooshmanagement.com'
     }
-  }
+  },
 ];
 
 const OurTeamSection = () => {
@@ -83,27 +105,28 @@ const OurTeamSection = () => {
           sectionId="our-team"
         />
 
-        {/* Mobile Scroll Container */}
-        <div className="relative md:hidden">
-          {/* Left Arrow */}
+        {/* Slider Container for both Mobile and Desktop */}
+        <div className="relative">
+          {/* Navigation Arrows */}
           {showLeftArrow && (
             <button
               onClick={() => scroll('left')}
               className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10
                        bg-white/80 rounded-full shadow-lg flex items-center justify-center
-                       text-gray-800 hover:bg-white transition-colors duration-200"
+                       text-gray-800 hover:bg-white transition-colors duration-200
+                       -translate-x-5 lg:-translate-x-8"
             >
               <FaChevronLeft className="w-4 h-4" />
             </button>
           )}
 
-          {/* Right Arrow */}
           {showRightArrow && (
             <button
               onClick={() => scroll('right')}
               className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10
                        bg-white/80 rounded-full shadow-lg flex items-center justify-center
-                       text-gray-800 hover:bg-white transition-colors duration-200"
+                       text-gray-800 hover:bg-white transition-colors duration-200
+                       translate-x-5 lg:translate-x-8"
             >
               <FaChevronRight className="w-4 h-4" />
             </button>
@@ -113,7 +136,8 @@ const OurTeamSection = () => {
           <div
             ref={scrollContainerRef}
             onScroll={handleScroll}
-            className="flex overflow-x-auto scrollbar-hide gap-4 pb-4 -mx-4 px-4"
+            className="flex overflow-x-auto scrollbar-hide gap-4 pb-4 -mx-4 px-4
+                     scroll-smooth snap-x snap-mandatory"
           >
             {teamMembers.map((member, index) => (
               <motion.div
@@ -122,7 +146,7 @@ const OurTeamSection = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="flex-shrink-0 w-[280px] h-full"
+                className="flex-shrink-0 w-[280px] md:w-[320px] h-full snap-center"
               >
                 <TeamMemberCard member={member} />
               </motion.div>
@@ -130,22 +154,7 @@ const OurTeamSection = () => {
           </div>
         </div>
 
-        {/* Desktop Grid */}
-        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {teamMembers.map((member, index) => (
-            <motion.div
-              key={member.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-            >
-              <TeamMemberCard member={member} />
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Team Values Section remains the same */}
+        {/* Team Values Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -177,7 +186,7 @@ const OurTeamSection = () => {
 
 // Extracted TeamMemberCard component for reusability
 const TeamMemberCard = ({ member }) => (
-  <div className="group h-full">
+  <div className="group h-[320px]">
     <div className="relative overflow-hidden rounded-2xl bg-white shadow-lg pt-16 h-full flex flex-col">
       {/* Profile Image Container - Updated styling */}
       <div className="absolute -top-2 left-1/2 -translate-x-1/2 mt-1">
@@ -216,16 +225,21 @@ const TeamMemberCard = ({ member }) => (
       </div>
 
       {/* Content */}
-      <div className="p-6 pt-20 text-center flex-1 flex flex-col">
-        <h3 className="text-xl font-bold text-gray-900 mb-1">
-          {member.name}
-        </h3>
-        <p className="text-primary font-medium mb-3">
-          {member.role}
-        </p>
-        <p className="text-gray-600 text-sm">
-          {member.bio}
-        </p>
+      <div className="p-6 pt-20 text-center flex-1 flex flex-col justify-between">
+        <div>
+          <h3 className="text-xl font-bold text-gray-900 mb-1">
+            {member.name}
+          </h3>
+          <p className="text-primary font-medium mb-3">
+            {member.role}
+          </p>
+          <p className="text-gray-600 text-sm line-clamp-4">
+            {member.bio}
+          </p>
+        </div>
+        <div className="h-8">
+          {/* Can add additional content here if needed */}
+        </div>
       </div>
     </div>
   </div>
