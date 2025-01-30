@@ -155,7 +155,7 @@ const OurTeamSection = () => {
         </div>
 
         {/* Team Values Section */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -178,7 +178,7 @@ const OurTeamSection = () => {
           >
             View Open Positions
           </motion.button>
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );
