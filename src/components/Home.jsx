@@ -12,6 +12,7 @@ import WorkflowSection from './WorkflowSection';
 import Footer from './Footer';
 import ContactSection from './ContactSection';
 import ScrollToTop from './ScrollToTop';
+import OurTeamSection from './OurTeamSection';
 
 const images = [
   'https://images.unsplash.com/photo-1600585154340-be6161a56a0c',
@@ -136,6 +137,10 @@ const Home = () => {
 
       <div id="workflow">
         <WorkflowSection />
+      </div>
+
+      <div id="our-team">
+        <OurTeamSection />
       </div>
 
       <div id="contact">

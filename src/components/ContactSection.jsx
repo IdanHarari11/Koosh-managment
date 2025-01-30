@@ -35,11 +35,46 @@ const ContactSection = () => {
     propertyAddress: '',
     message: '',
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
+    setIsSubmitting(true);
+
+    try {
+      // Format the email body with proper line breaks
+      const emailBody = `
+        Name: ${formData.name}
+        Email: ${formData.email}
+        Phone: ${formData.phone}
+        Property Address: ${formData.propertyAddress}
+
+        Message:
+        ${formData.message}`.trim();
+
+      // Create the mailto URL
+      const mailtoLink = `mailto:kooshmanagement@gmail.com?subject=${encodeURIComponent('New Contact Form Submission')}&body=${encodeURIComponent(emailBody)}`;
+
+      // Open email client
+      window.open(mailtoLink, '_blank');
+
+      // Clear form
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        propertyAddress: '',
+        message: '',
+      });
+
+      // // Show success message (you might want to add a toast or alert here)
+      // alert('Thank you for your message! Your email client should open shortly.');
+    } catch (error) {
+      console.error('Error sending email:', error);
+      alert('There was an error sending your message. Please try again or contact us directly.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e) => {
@@ -183,10 +218,12 @@ const ContactSection = () => {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 type="submit"
-                className="w-full px-8 py-3 bg-primary text-white rounded-lg font-medium
-                         hover:bg-primary/90 transition-colors duration-200"
+                disabled={isSubmitting}
+                className={`w-full px-8 py-3 bg-primary text-white rounded-lg font-medium
+                           hover:bg-primary/90 transition-colors duration-200 
+                           ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
               >
-                Send Message
+                {isSubmitting ? 'Sending...' : 'Send Message'}
               </motion.button>
             </form>
           </motion.div>

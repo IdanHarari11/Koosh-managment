@@ -74,9 +74,7 @@ const Footer = () => {
               />
             </Link>
             <p className="text-sm leading-relaxed mb-6">
-              We offer professional Airbnb management services to help you maximize 
-              your property's potential. Our dedicated team ensures the best experience 
-              for both hosts and guests.
+            We offer professional Airbnb management services to help you maximize your property's potential. Our dedicated team provides exceptional service, ensuring the best experience for both hosts and guests.
             </p>
           </div>
 

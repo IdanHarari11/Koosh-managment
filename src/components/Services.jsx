@@ -38,7 +38,7 @@ const services = [
     iconColor: 'text-rose-500',
     button: {
       text: 'Guest Guide',
-      action: '/guest-guide',
+      action: 'https://drive.google.com/file/d/1-EsS3chBggK5rfujwd9YfQiPK18qFnaZ/view?usp=sharing',
     },
   },
   {
@@ -90,7 +90,7 @@ const services = [
   {
     icon: FaCreditCard,
     title: 'Financial Management',
-    description: 'Transparent financial reporting and automated payments.',
+    description: 'Transparent financial reporting with automated monthly payments.',
     height: 'row-span-1',
     color: 'bg-cyan-50',
     iconColor: 'text-cyan-500',
@@ -104,7 +104,7 @@ const services = [
     iconColor: 'text-indigo-500',
     button: {
       text: 'Download PDF',
-      action: '/house-manual.pdf',
+      action: 'https://drive.google.com/file/d/1L_ey0U1MPJ5Q4jUT_fI2XJ_IPI9Thrkn/view?usp=sharing',
     },
   },
   {
