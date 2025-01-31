@@ -51,7 +51,7 @@ export const metadata = {
     creator: '@kooshmanagement',
     title: 'Koosh Management - Premium Property Management',
     description: 'Professional property management solutions for maximizing your investment returns.',
-    images: ['/images/og-image.png'], // Using the square logo for Twitter
+    images: ['https://res.cloudinary.com/dsdre8udm/image/upload/f_auto,q_auto/umb6vbve8unledggiqsz'],
   },
 
   // Additional metadata
