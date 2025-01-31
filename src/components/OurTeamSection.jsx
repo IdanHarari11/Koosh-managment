@@ -97,7 +97,7 @@ const OurTeamSection = () => {
   };
 
   return (
-    <section className="py-20 bg-gray-50/50">
+    <section className="pb-20 lg:py-20 bg-gray-50/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionTitle
           title="Meet Our Team"
@@ -189,7 +189,7 @@ const TeamMemberCard = ({ member }) => (
   <div className="group h-[320px]">
     <div className="relative overflow-hidden rounded-2xl bg-white shadow-lg pt-16 h-full flex flex-col">
       {/* Profile Image Container - Updated styling */}
-      <div className="absolute -top-2 left-1/2 -translate-x-1/2 mt-1">
+      <div className="absolute p-4 -top-2 left-1/2 -translate-x-1/2 mt-1">
         <div className="relative w-32 h-32 rounded-full overflow-hidden border-4 border-white shadow-lg bg-gray-100">
           <Image
             src={member.image}
@@ -225,7 +225,7 @@ const TeamMemberCard = ({ member }) => (
       </div>
 
       {/* Content */}
-      <div className="p-6 pt-20 text-center flex-1 flex flex-col justify-between">
+      <div className="p-6 pt-[6rem] text-center flex-1 flex flex-col justify-between">
         <div>
           <h3 className="text-xl font-bold text-gray-900 mb-1">
             {member.name}

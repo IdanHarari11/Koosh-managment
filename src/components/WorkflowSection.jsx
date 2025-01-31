@@ -155,7 +155,7 @@ const WorkflowSection = () => {
 
   return (
     <section 
-      className="py-12 md:py-20 bg-gray-50/50 overflow-hidden"
+      className="md:py-20 bg-gray-50/50 overflow-hidden"
       ref={containerRef}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

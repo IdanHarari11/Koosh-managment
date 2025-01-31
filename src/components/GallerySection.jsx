@@ -25,7 +25,7 @@ const images = [
   },
 ];
 
-const features = ['Top-rated Service', 'Airbnb Superhost', '24/7 Support'];
+const features = ['Top-rated Service', 'Airbnb Superhost', '24/7 Support', 'Cleaning Service'];
 
 const GallerySection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
