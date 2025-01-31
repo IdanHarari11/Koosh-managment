@@ -90,6 +90,11 @@ export default function RootLayout({ children }) {
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <meta property="og:image" content="https://res.cloudinary.com/dsdre8udm/image/upload/f_auto,q_auto/umb6vbve8unledggiqsz" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="Koosh Management - Premium Property Management Services" />
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:image:url" content="https://res.cloudinary.com/dsdre8udm/image/upload/f_auto,q_auto/umb6vbve8unledggiqsz" />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         {children}
