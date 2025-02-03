@@ -19,10 +19,43 @@ const teamMembers = [
     }
   },
   {
+    name: 'Yarden Elbaz',
+    role: 'General Manager',
+    image: '/images/team/YardenElbaz.jpeg',
+    bio: 'Passionate Airbnb General Manager, making stays seamless and maximizing property success. Expert in guest experience, team leadership, and boosting bookings with smart strategies.',
+    social: {
+      linkedin: 'https://linkedin.com',
+      twitter: 'https://twitter.com',
+      email: 'mailto:emma@kooshmanagement.com'
+    }
+  },
+  {
     name: 'Yani Gantz',
     role: 'Cleaning Manger Operation',
     image: '/images/team/Yani.jpeg',
     bio: 'Leading our cleaning operations with exceptional attention to detail. Ensures every property meets our high standards of cleanliness and guest satisfaction.',
+    social: {
+      linkedin: 'https://linkedin.com',
+      twitter: 'https://twitter.com',
+      email: 'mailto:michael@kooshmanagement.com'
+    }
+  },
+  {
+    name: 'Shamir Hayat',
+    role: 'Property Manager',
+    image: '/images/team/Shamir.jpeg',
+    bio: 'Experienced Property Manager focused on smooth operations, guest satisfaction, and maximizing rental success.',
+    social: {
+      linkedin: 'https://linkedin.com',
+      twitter: 'https://twitter.com',
+      email: 'mailto:michael@kooshmanagement.com'
+    }
+  },
+  {
+    name: 'Mir Muhha',
+    role: 'Property Manager',
+    image: '/images/team/MirMuhha.jpeg',
+    bio: 'Specialized in luxury property management and guest relations.',
     social: {
       linkedin: 'https://linkedin.com',
       twitter: 'https://twitter.com',
@@ -41,36 +74,14 @@ const teamMembers = [
     }
   },
   {
-    name: 'Yarden Elbaz',
-    role: 'General Manager',
-    image: '/images/team/YardenElbaz.jpeg',
-    bio: 'Passionate Airbnb General Manager, making stays seamless and maximizing property success. Expert in guest experience, team leadership, and boosting bookings with smart strategies.',
+    name: 'Andrea Posibo',
+    role: 'Maintenance Assistant',
+    image: '/images/team/AndreaPosibo.jpg',
+    bio: 'Handles property maintenance, repairs, and coordination with service providers, ensuring all units remain in top condition.',
     social: {
       linkedin: 'https://linkedin.com',
       twitter: 'https://twitter.com',
-      email: 'mailto:emma@kooshmanagement.com'
-    }
-  },
-  {
-    name: 'Mir Muhha',
-    role: 'Property Manager',
-    image: '/images/team/MirMuhha.jpeg',
-    bio: 'Specialized in luxury property management and guest relations.',
-    social: {
-      linkedin: 'https://linkedin.com',
-      twitter: 'https://twitter.com',
-      email: 'mailto:michael@kooshmanagement.com'
-    }
-  },
-  {
-    name: 'Shamir Hayat',
-    role: 'Property Manager',
-    image: '/images/team/Shamir.jpeg',
-    bio: 'Experienced Property Manager focused on smooth operations, guest satisfaction, and maximizing rental success.',
-    social: {
-      linkedin: 'https://linkedin.com',
-      twitter: 'https://twitter.com',
-      email: 'mailto:michael@kooshmanagement.com'
+      email: 'mailto:sarah@kooshmanagement.com'
     }
   },
 ];
