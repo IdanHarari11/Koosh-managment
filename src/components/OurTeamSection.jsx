@@ -33,7 +33,7 @@ const teamMembers = [
     name: 'Yani Gantz',
     role: 'Cleaning Manager Operation',
     image: '/images/team/Yani.jpeg',
-    bio: 'Leading our cleaning operations with exceptional attention to detail. Ensures every property meets our high standards of cleanliness and guest satisfaction.',
+    bio: 'Leading our cleaning operations with exceptional quality and attention to detail.',
     social: {
       linkedin: 'https://linkedin.com',
       twitter: 'https://twitter.com',
