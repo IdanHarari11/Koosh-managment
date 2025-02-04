@@ -107,7 +107,7 @@ const Home = () => {
               onClick={() => window.open('https://koosh.holidayfuture.com/', '_blank')}
               className="mt-8 px-8 py-3 bg-primary hover:bg-primary/90 text-white rounded-full font-medium transition-colors duration-200"
             >
-              Get Started
+              Book Now
             </motion.button>
           </div>
 

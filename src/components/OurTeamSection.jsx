@@ -10,8 +10,8 @@ const teamMembers = [
   {
     name: 'Yair Harari',
     role: 'CEO & Founder',
-    image: '/images/team/yair.jpeg', // Add team member images
-    bio: 'With over 15 years of experience in property management and real estate investment.',
+    image: '/images/team/yair.jpeg',
+    bio: 'B.A. in Business Management | 8+ Years in Property Management & Real Estate Investment, Airbnb Israel Community Owner.',
     social: {
       linkedin: 'https://linkedin.com',
       twitter: 'https://twitter.com',
@@ -22,7 +22,7 @@ const teamMembers = [
     name: 'Yarden Elbaz',
     role: 'General Manager',
     image: '/images/team/YardenElbaz.jpeg',
-    bio: 'Passionate Airbnb General Manager, making stays seamless and maximizing property success. Expert in guest experience, team leadership, and boosting bookings with smart strategies.',
+    bio: 'With expertise in hospitality and property management, ensuring seamless operations and exceptional guest experiences.',
     social: {
       linkedin: 'https://linkedin.com',
       twitter: 'https://twitter.com',
@@ -31,7 +31,7 @@ const teamMembers = [
   },
   {
     name: 'Yani Gantz',
-    role: 'Cleaning Manager Operation',
+    role: 'CEO, KBI Cleaning Services',
     image: '/images/team/Yani.jpeg',
     bio: 'Leading our cleaning operations with exceptional quality and attention to detail.',
     social: {
@@ -44,7 +44,7 @@ const teamMembers = [
     name: 'Shamir Hayat',
     role: 'Property Manager',
     image: '/images/team/Shamir.jpeg',
-    bio: 'Experienced Property Manager focused on smooth operations, guest satisfaction, and maximizing rental success.',
+    bio: 'Ensures smooth operations, maintaining high standards across buildings and villas while delivering exceptional guest experiences.',
     social: {
       linkedin: 'https://linkedin.com',
       twitter: 'https://twitter.com',
@@ -53,9 +53,9 @@ const teamMembers = [
   },
   {
     name: 'Mir Muhha',
-    role: 'Property Manager',
+    role: 'Customer Support',
     image: '/images/team/MirMuhha.jpeg',
-    bio: 'Specialized in luxury property management and guest relations.',
+    bio: 'Providing exceptional support, ensuring seamless communication and top-tier guest satisfaction.',
     social: {
       linkedin: 'https://linkedin.com',
       twitter: 'https://twitter.com',
@@ -64,9 +64,9 @@ const teamMembers = [
   },
   {
     name: 'Shakar Bangash',
-    role: 'Operations Manager',
+    role: 'Virtual Assistant',
     image: '/images/team/Shakar.jpeg',
-    bio: 'Expert in streamlining property management operations and guest experiences.',
+    bio: 'Manages bookings, guest communication, scheduling, and administrative tasks, ensuring smooth operations and top-tier service',
     social: {
       linkedin: 'https://linkedin.com',
       twitter: 'https://twitter.com',
