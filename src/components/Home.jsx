@@ -15,9 +15,10 @@ import ScrollToTop from './ScrollToTop';
 import OurTeamSection from './OurTeamSection';
 
 const images = [
-  'https://images.unsplash.com/photo-1600585154340-be6161a56a0c',
-  'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9',
-  'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c',
+  '/images/buildings/koosh-building.jpg',
+  '/images/buildings/building1.jpg',
+  '/images/buildings/building2.jpg',
+  '/images/buildings/building3.jpg',
 ];
 
 const Home = () => {
