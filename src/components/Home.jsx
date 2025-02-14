@@ -15,10 +15,10 @@ import ScrollToTop from './ScrollToTop';
 import OurTeamSection from './OurTeamSection';
 
 const images = [
-  '/images/buildings/building2.jpg',
-  '/images/buildings/building3.jpg',
-  '/images/buildings/building1.jpg',
-  '/images/buildings/koosh-building.jpg',
+  '/images/buildings/building2.webp',
+  '/images/buildings/building3.webp',
+  '/images/buildings/building1.webp',
+  '/images/buildings/koosh-building.webp',
 ];
 
 const Home = () => {

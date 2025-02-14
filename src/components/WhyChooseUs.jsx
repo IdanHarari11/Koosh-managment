@@ -32,32 +32,32 @@ const features = [
 
 const galleryImages = [
   {
-    url: '/images/buildings/luxuryVila.jpg',
+    url: '/images/buildings/luxuryVila.webp',
     alt: 'Luxury Villa',
     height: 'row-span-1',
   },
   {
-    url: '/images/buildings/modernApartment.jpg',
+    url: '/images/buildings/modernApartment.webp',
     alt: 'Modern Apartment',
     height: 'row-span-2',
   },
   {
-    url: '/images/buildings/cozyHome.jpg',
+    url: '/images/buildings/cozyHome.webp',
     alt: 'Cozy Home',
     height: 'row-span-1',
   },
   {
-    url: '/images/buildings/beachHouse.jpg',
+    url: '/images/buildings/beachHouse.webp',
     alt: 'Beach House',
     height: 'row-span-2',
   },
   {
-    url: '/images/buildings/luxuryInterior.jpg',
+    url: '/images/buildings/luxuryInterior.webp',
     alt: 'Luxury Interior',
     height: 'row-span-1',
   },
   {
-    url: '/images/buildings/modernKitchen.jpg',
+    url: '/images/buildings/modernKitchen.webp',
     alt: 'Modern Kitchen',
     height: 'row-span-1',
   },

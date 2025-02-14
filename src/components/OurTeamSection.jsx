@@ -10,7 +10,7 @@ const teamMembers = [
   {
     name: 'Yair Harari',
     role: 'CEO & Founder',
-    image: '/images/team/yair.jpeg',
+    image: '/images/team/yair.webp',
     bio: 'B.A. in Business Management | 8+ Years in Property Management & Real Estate Investment, Airbnb Israel Community Owner.',
     social: {
       linkedin: 'https://linkedin.com',
@@ -21,7 +21,7 @@ const teamMembers = [
   {
     name: 'Yarden Elbaz',
     role: 'General Manager',
-    image: '/images/team/YardenElbaz.jpeg',
+    image: '/images/team/YardenElbaz.webp',
     bio: 'With expertise in hospitality and property management, ensuring seamless operations and exceptional guest experiences.',
     social: {
       linkedin: 'https://linkedin.com',
@@ -32,7 +32,7 @@ const teamMembers = [
   {
     name: 'Yani Gantz',
     role: 'CEO, KBI Cleaning Services',
-    image: '/images/team/Yani.jpeg',
+    image: '/images/team/Yani.webp',
     bio: 'Leading our cleaning operations with exceptional quality and attention to detail.',
     social: {
       linkedin: 'https://linkedin.com',
@@ -43,7 +43,7 @@ const teamMembers = [
   {
     name: 'Shamir Hayat',
     role: 'Property Manager',
-    image: '/images/team/Shamir.jpeg',
+    image: '/images/team/Shamir.webp',
     bio: 'Ensures smooth operations, maintaining high standards across buildings and villas while delivering exceptional guest experiences.',
     social: {
       linkedin: 'https://linkedin.com',
@@ -54,7 +54,7 @@ const teamMembers = [
   {
     name: 'Mir Muhha',
     role: 'Customer Support',
-    image: '/images/team/MirMuhha.jpeg',
+    image: '/images/team/MirMuhha.webp',
     bio: 'Providing exceptional support, ensuring seamless communication and top-tier guest satisfaction.',
     social: {
       linkedin: 'https://linkedin.com',
@@ -63,9 +63,20 @@ const teamMembers = [
     }
   },
   {
-    name: 'Shakar Bangash',
+    name: 'Shahkar Bangash',
+    role: 'Supervisor',
+    image: '/images/team/Shakar.webp',
+    bio: 'Leads the customer service team, manages guest communication, resolves issues, and oversees bookings and operations to ensure a seamless experience.',
+    social: {
+      linkedin: 'https://linkedin.com',
+      twitter: 'https://twitter.com',
+      email: 'mailto:sarah@kooshmanagement.com'
+    }
+  },
+  {
+    name: 'Muhammad Umair',
     role: 'Virtual Assistant',
-    image: '/images/team/Shakar.jpeg',
+    image: '/images/team/MuhammadUmair.webp',
     bio: 'Manages bookings, guest communication, scheduling, and administrative tasks, ensuring smooth operations and top-tier service',
     social: {
       linkedin: 'https://linkedin.com',
@@ -76,7 +87,7 @@ const teamMembers = [
   {
     name: 'Andrea Posibo',
     role: 'Maintenance Assistant',
-    image: '/images/team/AndreaPosibo.jpg',
+    image: '/images/team/AndreaPosibo.webp',
     bio: 'Handles property maintenance, repairs, and coordination with service providers, ensuring all units remain in top condition.',
     social: {
       linkedin: 'https://linkedin.com',

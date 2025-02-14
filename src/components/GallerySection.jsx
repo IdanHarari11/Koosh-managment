@@ -8,23 +8,23 @@ import SectionTitle from './SectionTitle';
 
 const images = [
   {
-    url: '/images/buildings/koosh-building.jpg',
+    url: '/images/buildings/koosh-building.webp',
     alt: 'Kossh Building'
   },
   {
-    url: '/images/buildings/luxuryVila.jpg',
+    url: '/images/buildings/luxuryVila.webp',
     alt: 'Luxury Villa'
   },
   {
-    url: '/images/buildings/modernApartment.jpg',
+    url: '/images/buildings/modernApartment.webp',
     alt: 'Modern Apartment'
   },
   {
-    url: '/images/buildings/cozyHome.jpg',
+    url: '/images/buildings/cozyHome.webp',
     alt: 'Cozy Home'
   },
   {
-    url: '/images/buildings/beachHouse.jpg',
+    url: '/images/buildings/beachHouse.webp',
     alt: 'Beach House'
   },
 ];
