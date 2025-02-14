@@ -8,6 +8,10 @@ import SectionTitle from './SectionTitle';
 
 const images = [
   {
+    url: '/images/buildings/koosh-building.jpg',
+    alt: 'Kossh Building'
+  },
+  {
     url: '/images/buildings/luxuryVila.jpg',
     alt: 'Luxury Villa'
   },
