@@ -98,6 +98,11 @@ export default function RootLayout({ children }) {
         <meta property="og:title" content="Koosh Management - Premium Property Management" />
         <meta property="og:description" content="Professional property management solutions for maximizing your investment returns." />
         <meta property="og:image" content="https://res.cloudinary.com/dsdre8udm/image/upload/f_auto,q_auto/umb6vbve8unledggiqsz" />
+        <meta property="og:image:width" content="400" />
+        <meta property="og:image:height" content="400" />
+        <meta property="og:image:alt" content="Koosh Management - Premium Property Management Services" />
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:image:url" content="https://res.cloudinary.com/dsdre8udm/image/upload/f_auto,q_auto/umb6vbve8unledggiqsz" />
         <meta property="og:url" content="https://koosh-management.com" />
         <meta name="twitter:card" content="Griffin apartment image" />
         <meta property="og:type" content="website" />
