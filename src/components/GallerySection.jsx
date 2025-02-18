@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { HiChevronLeft, HiChevronRight } from 'react-icons/hi';
@@ -10,6 +10,10 @@ const images = [
   {
     url: '/images/buildings/koosh-building.webp',
     alt: 'Kossh Building'
+  },
+  {
+    url: '/images/buildings/Griffin apartment.webp',
+    alt: 'Griffin Apartment'
   },
   {
     url: '/images/buildings/luxuryVila.webp',

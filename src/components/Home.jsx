@@ -16,6 +16,7 @@ import OurTeamSection from './OurTeamSection';
 
 const images = [
   '/images/buildings/building2.webp',
+  '/images/buildings/Griffin apartment.webp',
   '/images/buildings/building3.webp',
   '/images/buildings/building1.webp',
   '/images/buildings/koosh-building.webp',
