@@ -253,7 +253,11 @@ const TeamMemberCard = ({ member }) => (
             {member.name}
           </h3>
           <p className="text-primary font-medium mb-3">
-            {member.role}
+            {
+              member.name === 'Yani Gantz' ? 
+                <a href="https://www.kbistaffing.com/" target="_black" className="text-primary font-medium hover:brightness-90 transition" style={{textDecoration: 'underline'}}>{member.role}</a> 
+                : <>{member.role}</>
+            }
           </p>
           <p className="text-gray-600 text-sm line-clamp-4">
             {member.bio}
