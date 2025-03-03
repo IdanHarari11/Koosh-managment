@@ -3,9 +3,10 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
-import { HiCheck, HiX } from 'react-icons/hi';
+import { HiX } from 'react-icons/hi';
 import { FaHome, FaComments, FaChartLine, FaCog } from 'react-icons/fa';
 import SectionTitle from './SectionTitle';
+import { TextAnimate } from "@/registry/magicui/text-animate";
 
 const features = [
   {
@@ -77,15 +78,17 @@ const WhyChooseUs = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
           {/* Left Column - Text Content */}
           <div className="flex flex-col justify-center">
-            <motion.p
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
               viewport={{ once: true }}
               className="text-sm text-primary uppercase tracking-wider font-medium"
             >
-              Why Choose Us?
-            </motion.p>
+              <TextAnimate animation="blurInUp" by="character" once>
+                Why Choose Us?
+              </TextAnimate>
+            </motion.div>
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -93,8 +96,9 @@ const WhyChooseUs = () => {
               viewport={{ once: true }}
               className="mt-2 text-3xl md:text-4xl font-bold text-gray-900"
             >
-              We Make it{' '}
-              <span className="text-primary">Effortless</span>
+              <TextAnimate animation="blurInUp" by="word" once>
+                We Make it Effortless
+              </TextAnimate>
             </motion.h2>
 
             <div className="mt-8 space-y-6">
@@ -112,7 +116,7 @@ const WhyChooseUs = () => {
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900">
-                      {feature.title}
+                     {feature.title}
                     </h3>
                     <p className="mt-1 text-gray-600">
                       {feature.description}

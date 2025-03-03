@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { FaLink } from 'react-icons/fa';
 import { useState } from 'react';
+import { TextAnimate } from "@/registry/magicui/text-animate";
 
 const SectionTitle = ({ title, subtitle, sectionId }) => {
   const [showCopy, setShowCopy] = useState(false);
@@ -18,15 +19,17 @@ const SectionTitle = ({ title, subtitle, sectionId }) => {
   return (
     <div className="text-center mb-16">
       {subtitle && (
-        <motion.p
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
           className="text-sm text-primary uppercase tracking-wider font-medium"
         >
-          {subtitle}
-        </motion.p>
+          <TextAnimate animation="blurInUp" by="character" once as="span">
+            {subtitle}
+          </TextAnimate>
+        </motion.div>
       )}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -49,7 +52,9 @@ const SectionTitle = ({ title, subtitle, sectionId }) => {
             <FaLink className="w-4 h-4" />
           </motion.button>
           <h2 className="text-3xl font-bold text-gray-900">
-            {title}
+            <TextAnimate animation="blurInUp" by="character" once as="span">
+              {title}
+            </TextAnimate>
           </h2>
           {copied && (
             <motion.div
