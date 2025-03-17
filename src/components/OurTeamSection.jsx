@@ -255,7 +255,7 @@ const TeamMemberCard = ({ member }) => (
           <p className="text-primary font-medium mb-3">
             {
               member.name === 'Yani Gantz' ? 
-                <a href="https://www.kbistaffing.com/" target="_black" className="text-primary font-medium hover:brightness-90 transition" style={{textDecoration: 'underline'}}>{member.role}</a> 
+                <a href="https://kbi-cleaning.netlify.app/" target="_black" className="text-primary font-medium hover:brightness-90 transition" style={{textDecoration: 'underline'}}>{member.role}</a> 
                 : <>{member.role}</>
             }
           </p>
