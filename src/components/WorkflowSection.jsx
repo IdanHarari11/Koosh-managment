@@ -1,6 +1,5 @@
 'use client';
 
-/* eslint-disable react-hooks/rules-of-hooks -- useTransform(progress, ...) inside map is Framer Motion API returning MotionValues; step progress values are created at top level */
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Image from 'next/image';
 import { 
@@ -95,7 +94,7 @@ const MobileSnakePath = ({ progress }) => {
   return (
     <svg
       className="absolute left-1/2 -translate-x-1/2 h-full"
-      style={{ 
+      style={{
         top: '4rem',
         zIndex: -1,
         width: '100vw',
@@ -125,6 +124,178 @@ const MobileSnakePath = ({ progress }) => {
     </svg>
   );
 };
+
+function DesktopStepCard({ step, progress, index }) {
+  const scale = useTransform(progress, [0, 1], [0.8, 1]);
+  const stepNumScale = useTransform(progress, [0.5, 1], [1, 1.2]);
+  const stepNumShadow = useTransform(progress, [0.5, 1], ['0 0 0 0 rgba(var(--color-primary), 0)', '0 0 0 10px rgba(var(--color-primary), 0.2)']);
+  const boxY = useTransform(progress, [0.2, 1], [20, 0]);
+  const boxShadow = useTransform(progress, [0.5, 1], ['0 4px 6px -1px rgba(0, 0, 0, 0.1)', '0 20px 25px -5px rgba(0, 0, 0, 0.1)']);
+  const iconRotate = useTransform(progress, [0.5, 1], [0, 360]);
+  const statsScale = useTransform(progress, [0.5, 1], [0.8, 1]);
+  const f0X = useTransform(progress, [0.7, 1], [-20, 0]);
+  const f0Opacity = useTransform(progress, [0.7, 1], [0, 1]);
+  const f1X = useTransform(progress, [0.8, 1], [-20, 0]);
+  const f1Opacity = useTransform(progress, [0.8, 1], [0, 1]);
+  const f2X = useTransform(progress, [0.9, 1], [-20, 0]);
+  const f2Opacity = useTransform(progress, [0.9, 1], [0, 1]);
+  const progressWidth = useTransform(progress, [0, 1], ['0%', `${((index + 1) / steps.length) * 100}%`]);
+
+  const featureTransforms = [
+    { x: f0X, opacity: f0Opacity },
+    { x: f1X, opacity: f1Opacity },
+    { x: f2X, opacity: f2Opacity }
+  ];
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, scale: 0.8 }}
+      style={{ opacity: progress, scale }}
+      className={`absolute w-80 transform -translate-x-1/2 ${step.position}`}
+    >
+      <motion.div
+        className="absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center text-sm font-medium z-10"
+        style={{ scale: stepNumScale, boxShadow: stepNumShadow }}
+      >
+        {index + 1}
+      </motion.div>
+      <motion.div
+        className={`p-4 md:p-6 rounded-xl bg-gradient-to-br ${step.color} shadow-lg transition-all duration-300 border border-white/20 backdrop-blur-sm`}
+        style={{ y: boxY, boxShadow }}
+      >
+        <div className="flex items-start justify-between mb-4">
+          <motion.div
+            className={`w-16 h-16 rounded-xl ${step.iconColor} bg-white/90 flex items-center justify-center`}
+            style={{ rotate: iconRotate }}
+          >
+            <step.icon className="w-8 h-8" />
+          </motion.div>
+          <div className="text-right">
+            <motion.div className="text-2xl font-bold text-primary" style={{ scale: statsScale }}>
+              {step.stats.value}
+            </motion.div>
+            <div className="text-sm text-gray-600">{step.stats.label}</div>
+          </div>
+        </div>
+        <h3 className="text-xl font-bold text-gray-900 mb-2">{step.title}</h3>
+        <p className="text-gray-600 mb-4">{step.description}</p>
+        <div className="space-y-2">
+          {step.features.map((feature, idx) => (
+            <motion.div
+              key={idx}
+              className="flex items-center gap-2"
+              style={featureTransforms[idx]}
+            >
+              <feature.icon className={`w-4 h-4 ${step.iconColor}`} />
+              <span className="text-sm text-gray-700">{feature.text}</span>
+            </motion.div>
+          ))}
+        </div>
+        <div className="mt-4 pt-4 border-t border-gray-200/50">
+          <div className="flex justify-between text-xs text-gray-500">
+            <span>Step {index + 1} of {steps.length}</span>
+            <span>{Math.round(((index + 1) / steps.length) * 100)}% Complete</span>
+          </div>
+          <div className="mt-1 h-1 bg-gray-200 rounded-full overflow-hidden">
+            <motion.div className="h-full bg-primary" style={{ width: progressWidth }} />
+          </div>
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+}
+
+function MobileStepCard({ step, progress, index }) {
+  const isEven = index % 2 === 0;
+  const x = useTransform(progress, [0, 1], [isEven ? -20 : 20, 0]);
+  const stepNumScale = useTransform(progress, [0.5, 1], [1, 1.2]);
+  const stepNumShadow = useTransform(progress, [0.5, 1], ['0 0 0 0 rgba(var(--color-primary), 0)', '0 0 0 10px rgba(var(--color-primary), 0.2)']);
+  const boxShadow = useTransform(progress, [0.5, 1], ['0 4px 6px -1px rgba(0, 0, 0, 0.1)', '0 20px 25px -5px rgba(0, 0, 0, 0.1)']);
+  const iconRotate = useTransform(progress, [0.5, 1], [0, 360]);
+  const statsScale = useTransform(progress, [0.5, 1], [0.8, 1]);
+  const f0X = useTransform(progress, [0.7, 1], [-20, 0]);
+  const f0Opacity = useTransform(progress, [0.7, 1], [0, 1]);
+  const f1X = useTransform(progress, [0.8, 1], [-20, 0]);
+  const f1Opacity = useTransform(progress, [0.8, 1], [0, 1]);
+  const f2X = useTransform(progress, [0.9, 1], [-20, 0]);
+  const f2Opacity = useTransform(progress, [0.9, 1], [0, 1]);
+  const progressWidth = useTransform(progress, [0, 1], ['0%', `${((index + 1) / steps.length) * 100}%`]);
+
+  const featureTransforms = [
+    { x: f0X, opacity: f0Opacity },
+    { x: f1X, opacity: f1Opacity },
+    { x: f2X, opacity: f2Opacity }
+  ];
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, x: isEven ? -20 : 20 }}
+      style={{
+        opacity: progress,
+        x,
+        position: 'absolute',
+        top: `${index * 450}px`,
+        left: 0,
+        right: 0,
+        paddingBottom: '50px'
+      }}
+      className="w-full"
+    >
+      <div className={`flex ${isEven ? 'justify-start' : 'justify-end'}`}>
+        <div className="w-[85vw] max-w-sm">
+          <motion.div
+            className="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center text-sm font-medium mx-auto mb-4"
+            style={{ scale: stepNumScale, boxShadow: stepNumShadow }}
+          >
+            {index + 1}
+          </motion.div>
+          <motion.div
+            className={`p-4 rounded-xl bg-gradient-to-br ${step.color} shadow-lg transition-all duration-300 border border-white/20 backdrop-blur-sm`}
+            style={{ boxShadow }}
+          >
+            <div className="flex items-start justify-between mb-4">
+              <motion.div
+                className={`w-16 h-16 rounded-xl ${step.iconColor} bg-white/90 flex items-center justify-center`}
+                style={{ rotate: iconRotate }}
+              >
+                <step.icon className="w-8 h-8" />
+              </motion.div>
+              <div className="text-right">
+                <motion.div className="text-2xl font-bold text-primary" style={{ scale: statsScale }}>
+                  {step.stats.value}
+                </motion.div>
+                <div className="text-sm text-gray-600">{step.stats.label}</div>
+              </div>
+            </div>
+            <h3 className="text-xl font-bold text-gray-900 mb-2">{step.title}</h3>
+            <p className="text-gray-600 mb-4">{step.description}</p>
+            <div className="space-y-2">
+              {step.features.map((feature, idx) => (
+                <motion.div
+                  key={idx}
+                  className="flex items-center gap-2"
+                  style={featureTransforms[idx]}
+                >
+                  <feature.icon className={`w-4 h-4 ${step.iconColor}`} />
+                  <span className="text-sm text-gray-700">{feature.text}</span>
+                </motion.div>
+              ))}
+            </div>
+            <div className="mt-4 pt-4 border-t border-gray-200/50">
+              <div className="flex justify-between text-xs text-gray-500">
+                <span>Step {index + 1} of {steps.length}</span>
+                <span>{Math.round(((index + 1) / steps.length) * 100)}% Complete</span>
+              </div>
+              <div className="mt-1 h-1 bg-gray-200 rounded-full overflow-hidden">
+                <motion.div className="h-full bg-primary" style={{ width: progressWidth }} />
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
 
 const WorkflowSection = () => {
   const containerRef = useRef(null);
@@ -251,119 +422,14 @@ const WorkflowSection = () => {
               </svg>
 
               {/* Desktop Steps */}
-              {steps.map((step, index) => {
-                const progress = stepProgresses[index];
-                return (
-                  <motion.div
-                    key={`desktop-${step.title}`}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    style={{
-                      opacity: progress,
-                      scale: useTransform(progress, [0, 1], [0.8, 1])
-                    }}
-                    className={`absolute w-80 transform -translate-x-1/2 ${step.position}`}
-                  >
-                    {/* Step Number */}
-                    <motion.div
-                      className="absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 
-                                rounded-full bg-primary text-white flex items-center 
-                                justify-center text-sm font-medium z-10"
-                      style={{
-                        scale: useTransform(progress, [0.5, 1], [1, 1.2]),
-                        boxShadow: useTransform(
-                          progress,
-                          [0.5, 1],
-                          ['0 0 0 0 rgba(var(--color-primary), 0)', '0 0 0 10px rgba(var(--color-primary), 0.2)']
-                        )
-                      }}
-                    >
-                      {index + 1}
-                    </motion.div>
-
-                    {/* Step Box */}
-                    <motion.div
-                      className={`p-4 md:p-6 rounded-xl bg-gradient-to-br ${step.color}
-                                shadow-lg transition-all duration-300
-                                border border-white/20 backdrop-blur-sm`}
-                      style={{
-                        y: useTransform(progress, [0.2, 1], [20, 0]),
-                        boxShadow: useTransform(
-                          progress,
-                          [0.5, 1],
-                          ['0 4px 6px -1px rgba(0, 0, 0, 0.1)', '0 20px 25px -5px rgba(0, 0, 0, 0.1)']
-                        )
-                      }}
-                    >
-                      {/* Header */}
-                      <div className="flex items-start justify-between mb-4">
-                        <motion.div
-                          className={`w-16 h-16 rounded-xl ${step.iconColor} bg-white/90
-                                    flex items-center justify-center`}
-                          style={{
-                            rotate: useTransform(progress, [0.5, 1], [0, 360])
-                          }}
-                        >
-                          <step.icon className="w-8 h-8" />
-                        </motion.div>
-                        <div className="text-right">
-                          <motion.div
-                            className="text-2xl font-bold text-primary"
-                            style={{
-                              scale: useTransform(progress, [0.5, 1], [0.8, 1])
-                            }}
-                          >
-                            {step.stats.value}
-                          </motion.div>
-                          <div className="text-sm text-gray-600">
-                            {step.stats.label}
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Content */}
-                      <h3 className="text-xl font-bold text-gray-900 mb-2">
-                        {step.title}
-                      </h3>
-                      <p className="text-gray-600 mb-4">
-                        {step.description}
-                      </p>
-
-                      {/* Features */}
-                      <div className="space-y-2">
-                        {step.features.map((feature, idx) => (
-                          <motion.div
-                            key={idx}
-                            className="flex items-center gap-2"
-                            style={{
-                              x: useTransform(progress, [0.7 + idx * 0.1, 1], [-20, 0]),
-                              opacity: useTransform(progress, [0.7 + idx * 0.1, 1], [0, 1])
-                            }}
-                          >
-                            <feature.icon className={`w-4 h-4 ${step.iconColor}`} />
-                            <span className="text-sm text-gray-700">{feature.text}</span>
-                          </motion.div>
-                        ))}
-                      </div>
-
-                      {/* Progress Indicator */}
-                      <div className="mt-4 pt-4 border-t border-gray-200/50">
-                        <div className="flex justify-between text-xs text-gray-500">
-                          <span>Step {index + 1} of {steps.length}</span>
-                          <span>{Math.round(((index + 1) / steps.length) * 100)}% Complete</span>
-                        </div>
-                        <div className="mt-1 h-1 bg-gray-200 rounded-full overflow-hidden">
-                          <motion.div
-                            className="h-full bg-primary"
-                            style={{
-                              width: useTransform(progress, [0, 1], ['0%', `${((index + 1) / steps.length) * 100}%`])
-                            }}
-                          />
-                        </div>
-                      </div>
-                    </motion.div>
-                  </motion.div>
-                );
-              })}
+              {steps.map((step, index) => (
+                <DesktopStepCard
+                  key={`desktop-${step.title}`}
+                  step={step}
+                  progress={stepProgresses[index]}
+                  index={index}
+                />
+              ))}
             </div>
 
             {/* Mobile Layout */}
@@ -373,130 +439,14 @@ const WorkflowSection = () => {
 
               {/* Steps Container */}
               <div className="relative h-full">
-                {steps.map((step, index) => {
-                  const progress = stepProgresses[index];
-                  const isEven = index % 2 === 0;
-                  const topPosition = `${index * 450}px`;
-
-                  return (
-                    <motion.div
-                      key={`mobile-${step.title}`}
-                      initial={{ opacity: 0, x: isEven ? -20 : 20 }}
-                      style={{
-                        opacity: progress,
-                        x: useTransform(progress, [0, 1], [isEven ? -20 : 20, 0]),
-                        position: 'absolute',
-                        top: topPosition,
-                        left: 0,
-                        right: 0,
-                        paddingBottom: '50px'
-                      }}
-                      className="w-full"
-                    >
-                      <div className={`flex ${isEven ? 'justify-start' : 'justify-end'}`}>
-                        <div className="w-[85vw] max-w-sm">
-                          {/* Step Number */}
-                          <motion.div
-                            className="w-8 h-8 rounded-full bg-primary text-white 
-                                      flex items-center justify-center text-sm font-medium
-                                      mx-auto mb-4"
-                            style={{
-                              scale: useTransform(progress, [0.5, 1], [1, 1.2]),
-                              boxShadow: useTransform(
-                                progress,
-                                [0.5, 1],
-                                ['0 0 0 0 rgba(var(--color-primary), 0)', '0 0 0 10px rgba(var(--color-primary), 0.2)']
-                              )
-                            }}
-                          >
-                            {index + 1}
-                          </motion.div>
-
-                          {/* Step Box */}
-                          <motion.div
-                            className={`p-4 rounded-xl bg-gradient-to-br ${step.color}
-                                      shadow-lg transition-all duration-300
-                                      border border-white/20 backdrop-blur-sm`}
-                            style={{
-                              boxShadow: useTransform(
-                                progress,
-                                [0.5, 1],
-                                ['0 4px 6px -1px rgba(0, 0, 0, 0.1)', '0 20px 25px -5px rgba(0, 0, 0, 0.1)']
-                              )
-                            }}
-                          >
-                            {/* Header */}
-                            <div className="flex items-start justify-between mb-4">
-                              <motion.div
-                                className={`w-16 h-16 rounded-xl ${step.iconColor} bg-white/90
-                                          flex items-center justify-center`}
-                                style={{
-                                  rotate: useTransform(progress, [0.5, 1], [0, 360])
-                                }}
-                              >
-                                <step.icon className="w-8 h-8" />
-                              </motion.div>
-                              <div className="text-right">
-                                <motion.div
-                                  className="text-2xl font-bold text-primary"
-                                  style={{
-                                    scale: useTransform(progress, [0.5, 1], [0.8, 1])
-                                  }}
-                                >
-                                  {step.stats.value}
-                                </motion.div>
-                                <div className="text-sm text-gray-600">
-                                  {step.stats.label}
-                                </div>
-                              </div>
-                            </div>
-
-                            {/* Content */}
-                            <h3 className="text-xl font-bold text-gray-900 mb-2">
-                              {step.title}
-                            </h3>
-                            <p className="text-gray-600 mb-4">
-                              {step.description}
-                            </p>
-
-                            {/* Features */}
-                            <div className="space-y-2">
-                              {step.features.map((feature, idx) => (
-                                <motion.div
-                                  key={idx}
-                                  className="flex items-center gap-2"
-                                  style={{
-                                    x: useTransform(progress, [0.7 + idx * 0.1, 1], [-20, 0]),
-                                    opacity: useTransform(progress, [0.7 + idx * 0.1, 1], [0, 1])
-                                  }}
-                                >
-                                  <feature.icon className={`w-4 h-4 ${step.iconColor}`} />
-                                  <span className="text-sm text-gray-700">{feature.text}</span>
-                                </motion.div>
-                              ))}
-                            </div>
-
-                            {/* Progress Indicator */}
-                            <div className="mt-4 pt-4 border-t border-gray-200/50">
-                              <div className="flex justify-between text-xs text-gray-500">
-                                <span>Step {index + 1} of {steps.length}</span>
-                                <span>{Math.round(((index + 1) / steps.length) * 100)}% Complete</span>
-                              </div>
-                              <div className="mt-1 h-1 bg-gray-200 rounded-full overflow-hidden">
-                                <motion.div
-                                  className="h-full bg-primary"
-                                  style={{
-                                    width: useTransform(progress, [0, 1], ['0%', `${((index + 1) / steps.length) * 100}%`])
-                                  }}
-                                />
-                              </div>
-                            </div>
-                          </motion.div>
-                        </div>
-                      </div>
-                    </motion.div>
-                  );
-                })}
+                {steps.map((step, index) => (
+                  <MobileStepCard
+                    key={`mobile-${step.title}`}
+                    step={step}
+                    progress={stepProgresses[index]}
+                    index={index}
+                  />
+                ))}
               </div>
             </div>
           </div>
