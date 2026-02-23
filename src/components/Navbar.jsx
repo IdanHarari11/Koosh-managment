@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { HiMenu, HiX } from 'react-icons/hi';
 import Image from 'next/image';
+import Link from 'next/link';
 import useScrollToSection from '@/hooks/useScrollToSection';
 
 const navItems = [
@@ -15,6 +16,7 @@ const navItems = [
   { name: 'How It Works', sectionId: 'workflow' },
   { name: 'Our Team', sectionId: 'our-team' },
   { name: 'Contact', sectionId: 'contact' },
+  { name: 'Concierge', href: '/concierge' },
 ];
 
 const Navbar = () => {
@@ -61,17 +63,29 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8">
-            {navItems.map((item) => (
-              <button
-                key={item.name}
-                onClick={() => scrollToSection(item.sectionId, setIsMenuOpen(false))}
-                className={`font-medium transition-colors duration-200 ${
-                  scrolled ? 'text-gray-700 hover:text-primary' : 'text-white hover:text-primary'
-                }`}
-              >
-                {item.name}
-              </button>
-            ))}
+            {navItems.map((item) =>
+              item.href ? (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className={`font-medium transition-colors duration-200 ${
+                    scrolled ? 'text-gray-700 hover:text-primary' : 'text-white hover:text-primary'
+                  }`}
+                >
+                  {item.name}
+                </Link>
+              ) : (
+                <button
+                  key={item.name}
+                  onClick={() => scrollToSection(item.sectionId, setIsMenuOpen(false))}
+                  className={`font-medium transition-colors duration-200 ${
+                    scrolled ? 'text-gray-700 hover:text-primary' : 'text-white hover:text-primary'
+                  }`}
+                >
+                  {item.name}
+                </button>
+              )
+            )}
           </div>
 
           {/* Mobile Menu Button */}
@@ -112,19 +126,33 @@ const Navbar = () => {
               }}
               className="px-4 pt-2 pb-3 space-y-1"
             >
-              {navItems.map((item) => (
-                <motion.button
-                  key={item.name}
-                  onClick={() => scrollToSection(item.sectionId, setIsMenuOpen(false))}
-                  variants={{
-                    hidden: { opacity: 0, y: -20 },
-                    visible: { opacity: 1, y: 0 }
-                  }}
-                  className="block py-3 text-gray-700 hover:text-primary transition-colors duration-200 font-medium w-full text-left"
-                >
-                  {item.name}
-                </motion.button>
-              ))}
+              {navItems.map((item) =>
+                item.href ? (
+                  <Link key={item.name} href={item.href} onClick={() => setIsMenuOpen(false)}>
+                    <motion.span
+                      variants={{
+                        hidden: { opacity: 0, y: -20 },
+                        visible: { opacity: 1, y: 0 }
+                      }}
+                      className="block py-3 text-gray-700 hover:text-primary transition-colors duration-200 font-medium"
+                    >
+                      {item.name}
+                    </motion.span>
+                  </Link>
+                ) : (
+                  <motion.button
+                    key={item.name}
+                    onClick={() => scrollToSection(item.sectionId, setIsMenuOpen(false))}
+                    variants={{
+                      hidden: { opacity: 0, y: -20 },
+                      visible: { opacity: 1, y: 0 }
+                    }}
+                    className="block py-3 text-gray-700 hover:text-primary transition-colors duration-200 font-medium w-full text-left"
+                  >
+                    {item.name}
+                  </motion.button>
+                )
+              )}
             </motion.div>
           </motion.div>
         )}

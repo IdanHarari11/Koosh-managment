@@ -23,6 +23,7 @@ const quickLinks = [
   { name: 'Services', sectionId: 'services' },
   { name: 'How It Works', sectionId: 'workflow' },
   { name: 'Contact', sectionId: 'contact' },
+  { name: 'Concierge', href: '/concierge' },
 ];
 
 const socialLinks = [
@@ -84,12 +85,21 @@ const Footer = () => {
             <ul className="space-y-2">
               {quickLinks.map((link) => (
                 <li key={link.name}>
-                  <button
-                    onClick={() => scrollToSection(link.sectionId)}
-                    className="text-sm hover:text-white transition-colors duration-200"
-                  >
-                    {link.name}
-                  </button>
+                  {link.href ? (
+                    <Link
+                      href={link.href}
+                      className="text-sm hover:text-white transition-colors duration-200"
+                    >
+                      {link.name}
+                    </Link>
+                  ) : (
+                    <button
+                      onClick={() => scrollToSection(link.sectionId)}
+                      className="text-sm hover:text-white transition-colors duration-200"
+                    >
+                      {link.name}
+                    </button>
+                  )}
                 </li>
               ))}
             </ul>
