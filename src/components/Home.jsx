@@ -90,7 +90,7 @@ const Home = () => {
               transition={{ duration: 0.8 }}
               className="text-4xl md:text-6xl font-bold text-center"
             >
-              Maximize Your Property's Potential
+              Maximize Your Property&apos;s Potential
             </motion.h1>
             
             <motion.p

@@ -75,7 +75,7 @@ const Footer = () => {
               />
             </Link>
             <p className="text-sm leading-relaxed mb-6">
-              Maximize your property's potential with our expert Airbnb management. We handle everything, ensuring seamless hosting and exceptional guest experiences.
+              Maximize your property&apos;s potential with our expert Airbnb management. We handle everything, ensuring seamless hosting and exceptional guest experiences.
             </p>
           </div>
 

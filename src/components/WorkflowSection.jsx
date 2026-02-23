@@ -1,5 +1,6 @@
 'use client';
 
+/* eslint-disable react-hooks/rules-of-hooks -- useTransform(progress, ...) inside map is Framer Motion API returning MotionValues; step progress values are created at top level */
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Image from 'next/image';
 import { 
@@ -141,17 +142,12 @@ const WorkflowSection = () => {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  // Adjusted timing for step animations to complete within view
-  const getStepProgress = (index) => {
-    return useTransform(
-      scrollYProgress,
-      [
-        index * 0.2,          // Adjusted timing
-        Math.min((index + 1) * 0.2, 0.8)  // Ensure all steps complete by 80% scroll
-      ],
-      [0, 1]
-    );
-  };
+  // useTransform must be called at top level (React hooks rules)
+  const stepProgress0 = useTransform(scrollYProgress, [0, 0.2], [0, 1]);
+  const stepProgress1 = useTransform(scrollYProgress, [0.2, 0.4], [0, 1]);
+  const stepProgress2 = useTransform(scrollYProgress, [0.4, 0.6], [0, 1]);
+  const stepProgress3 = useTransform(scrollYProgress, [0.6, 0.8], [0, 1]);
+  const stepProgresses = [stepProgress0, stepProgress1, stepProgress2, stepProgress3];
 
   return (
     <section 
@@ -256,7 +252,7 @@ const WorkflowSection = () => {
 
               {/* Desktop Steps */}
               {steps.map((step, index) => {
-                const progress = getStepProgress(index);
+                const progress = stepProgresses[index];
                 return (
                   <motion.div
                     key={`desktop-${step.title}`}
@@ -378,7 +374,7 @@ const WorkflowSection = () => {
               {/* Steps Container */}
               <div className="relative h-full">
                 {steps.map((step, index) => {
-                  const progress = getStepProgress(index);
+                  const progress = stepProgresses[index];
                   const isEven = index % 2 === 0;
                   const topPosition = `${index * 450}px`;
 
