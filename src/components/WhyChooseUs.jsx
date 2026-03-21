@@ -85,7 +85,7 @@ const WhyChooseUs = () => {
               viewport={{ once: true }}
               className="text-sm text-primary uppercase tracking-wider font-medium"
             >
-              <TextAnimate animation="blurInUp" by="character" once>
+              <TextAnimate animation="blurInUp" by="word" once>
                 Why Choose Us?
               </TextAnimate>
             </motion.div>
