@@ -26,7 +26,7 @@ const SectionTitle = ({ title, subtitle, sectionId }) => {
           viewport={{ once: true }}
           className="text-sm text-primary uppercase tracking-wider font-medium"
         >
-          <TextAnimate animation="blurInUp" by="word" once as="span">
+          <TextAnimate animation="blurInUp" by="text" once as="span">
             {subtitle}
           </TextAnimate>
         </motion.div>
@@ -52,7 +52,7 @@ const SectionTitle = ({ title, subtitle, sectionId }) => {
             <FaLink className="w-4 h-4" />
           </motion.button>
           <h2 className="text-3xl font-bold text-gray-900">
-            <TextAnimate animation="blurInUp" by="word" once as="span">
+            <TextAnimate animation="blurInUp" by="text" once as="span">
               {title}
             </TextAnimate>
           </h2>
