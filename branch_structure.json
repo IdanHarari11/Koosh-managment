@@ -1,0 +1,18 @@
+{
+  "default_branch": "main",
+  "branches": [
+    "claude/fix-issue-AlTqg",
+    "main",
+    "origin"
+  ],
+  "parent": {
+    "claude/fix-issue-AlTqg": "main",
+    "main": null,
+    "origin": "main"
+  },
+  "order": [
+    "main",
+    "claude/fix-issue-AlTqg",
+    "origin"
+  ]
+}
