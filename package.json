@@ -6,7 +6,8 @@
     "dev": "node api.js && next dev --turbopack",
     "build": "node api.js && next build",
     "start": "node api.js && next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "security:check-no-loader": "node scripts/check-no-loader.mjs"
   },
   "dependencies": {
     "framer-motion": "^12.0.5",
